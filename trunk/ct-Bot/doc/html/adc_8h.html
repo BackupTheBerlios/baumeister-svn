@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: adc.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>adc.h-Dateireferenz</h1>Routinen zum Einlesen der Analogeingaenge. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="global_8h-source.html">global.h</a>&quot;</code><br>
+
+<p>
+<a href="adc_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#37d44b4593e138dc3d503f58fa44c06e">adc_read</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> channel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#229b616f37a46e1f4e5bb418d3106a2e">adc_select_channel</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> channel)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#4b736a03fb88d9f06a9c29a7204c67f7">adc_isr</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#abdc6fa2a38fbd3e05aebd082d933a52">adc_init</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> channel)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Routinen zum Einlesen der Analogeingaenge. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>26.12.05 </dd></dl>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="abdc6fa2a38fbd3e05aebd082d933a52"></a><!-- doxytag: member="adc.h::adc_init" ref="abdc6fa2a38fbd3e05aebd082d933a52" args="(uint8 channel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adc_init           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>channel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisert den AD-Umsetzer. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>channel</em>&nbsp;</td><td>fuer jeden Kanal, den man nutzen moechte, muss das entsprechende Bit in channel gesetzt sein. Bit0 = Kanal 0 usw. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="4b736a03fb88d9f06a9c29a7204c67f7"></a><!-- doxytag: member="adc.h::adc_isr" ref="4b736a03fb88d9f06a9c29a7204c67f7" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adc_isr           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Routine wird vom Timer-Interrupt aufgerufen und speichert einen Messwert (vorher wendet sie evtl. noch eine Filterfunktion an). 
+</div>
+</div><p>
+<a class="anchor" name="37d44b4593e138dc3d503f58fa44c06e"></a><!-- doxytag: member="adc.h::adc_read" ref="37d44b4593e138dc3d503f58fa44c06e" args="(uint8 channel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 adc_read           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>channel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liest einen analogen Kanal aus <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>channel</em>&nbsp;</td><td>Kanal - hex-Wertigkeit des Pins (0x01 fuer PA0; 0x02 fuer PA1, ..) </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="229b616f37a46e1f4e5bb418d3106a2e"></a><!-- doxytag: member="adc.h::adc_select_channel" ref="229b616f37a46e1f4e5bb418d3106a2e" args="(uint8 channel)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adc_select_channel           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>channel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Wechselt einen ADU-kanal. Dafuer muessen auch die Puffer zurueckgesetzt werden <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>channel</em>&nbsp;</td><td>Kanal - hex-Wertigkeit des Pins (0x01 fuer PA0; 0x02 fuer PA1, ..) </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:12 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

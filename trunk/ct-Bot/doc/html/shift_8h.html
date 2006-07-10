@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: shift.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>shift.h-Dateireferenz</h1>Routinen zur Ansteuerung der Shift-Register. <a href="#_details">Mehr ...</a>
+<p>
+
+<p>
+<a href="shift_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#86d352c8f3424d2e83fc8002127badc4">SHIFT_LATCH</a>&nbsp;&nbsp;&nbsp;(1&lt;&lt;1)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#9c8dc9a4ec6a551eca556328d16ba2af">SHIFT_REGISTER_DISPLAY</a>&nbsp;&nbsp;&nbsp;0x04</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#7d1ff5cb9332a2096d17535f946f3575">SHIFT_REGISTER_LED</a>&nbsp;&nbsp;&nbsp;0x10</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#ccd425cb0a81f9b6e9b55c2f04af2129">SHIFT_REGISTER_ENA</a>&nbsp;&nbsp;&nbsp;0x08</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#c7600504b8cf1ac90ce331a5ed23c3db">shift_init</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#2df335814e42f5c924e33af3d583df44">shift_data_out</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> data, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> latch_data, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> latch_store)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#eb1b468eadc374ba61409ea9b7356b8e">shift_data</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> data, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> latch_data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="shift_8h.html#9f5c90e2387a42d09291591817a50855">shift_clear</a> (void)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Routinen zur Ansteuerung der Shift-Register. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>20.12.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="86d352c8f3424d2e83fc8002127badc4"></a><!-- doxytag: member="shift.h::SHIFT_LATCH" ref="86d352c8f3424d2e83fc8002127badc4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHIFT_LATCH&nbsp;&nbsp;&nbsp;(1&lt;&lt;1)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Clock to store Data into shiftregister 
+</div>
+</div><p>
+<a class="anchor" name="9c8dc9a4ec6a551eca556328d16ba2af"></a><!-- doxytag: member="shift.h::SHIFT_REGISTER_DISPLAY" ref="9c8dc9a4ec6a551eca556328d16ba2af" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHIFT_REGISTER_DISPLAY&nbsp;&nbsp;&nbsp;0x04          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Port-Pin for shiftregister latch (display) 
+</div>
+</div><p>
+<a class="anchor" name="ccd425cb0a81f9b6e9b55c2f04af2129"></a><!-- doxytag: member="shift.h::SHIFT_REGISTER_ENA" ref="ccd425cb0a81f9b6e9b55c2f04af2129" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHIFT_REGISTER_ENA&nbsp;&nbsp;&nbsp;0x08          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Port-Pin for shiftregister latch (enable) 
+</div>
+</div><p>
+<a class="anchor" name="7d1ff5cb9332a2096d17535f946f3575"></a><!-- doxytag: member="shift.h::SHIFT_REGISTER_LED" ref="7d1ff5cb9332a2096d17535f946f3575" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHIFT_REGISTER_LED&nbsp;&nbsp;&nbsp;0x10          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Port-Pin for shiftregister latch (leds) 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="9f5c90e2387a42d09291591817a50855"></a><!-- doxytag: member="shift.h::shift_clear" ref="9f5c90e2387a42d09291591817a50855" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void shift_clear           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Setzt die Shift-Register wieder zurueck 
+</div>
+</div><p>
+<a class="anchor" name="eb1b468eadc374ba61409ea9b7356b8e"></a><!-- doxytag: member="shift.h::shift_data" ref="eb1b468eadc374ba61409ea9b7356b8e" args="(uint8 data, uint8 latch_data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void shift_data           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>latch_data</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Schiebt Daten durch eines der drei 74HC595-Schieberegister, vereinfachte Version, braucht kein <a class="el" href="shift_8h.html#9f5c90e2387a42d09291591817a50855">shift_clear()</a>. Funktioniert NICHT fuer das Shift-Register, an dem das Display haengt!!! <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>Das Datenbyte </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>latch_data</em>&nbsp;</td><td>der Pin, an dem der Daten-latch-Pin des Registers (PIN 11) haengt </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="2df335814e42f5c924e33af3d583df44"></a><!-- doxytag: member="shift.h::shift_data_out" ref="2df335814e42f5c924e33af3d583df44" args="(uint8 data, uint8 latch_data, uint8 latch_store)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void shift_data_out           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>latch_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>latch_store</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Schiebt Daten durch eines der drei 74HC595-Schieberegister Achtung: den Port sollte man danach noch per <a class="el" href="shift_8h.html#9f5c90e2387a42d09291591817a50855">shift_clear()</a> zuruecksetzen! <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>Das Datenbyte </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>latch_data</em>&nbsp;</td><td>der Pin, an dem der Daten-latch-Pin des Registers (PIN 11) haengt </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>latch_store</em>&nbsp;</td><td>der Pin, an dem der latch-Pin zum Transfer des Registers (PIN 12) haengt </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="c7600504b8cf1ac90ce331a5ed23c3db"></a><!-- doxytag: member="shift.h::shift_init" ref="c7600504b8cf1ac90ce331a5ed23c3db" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void shift_init           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisert die Shift-Register 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

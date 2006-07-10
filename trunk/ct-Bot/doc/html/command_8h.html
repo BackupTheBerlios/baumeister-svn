@@ -1,0 +1,891 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: command.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>command.h-Dateireferenz</h1>Kommando-Management. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="global_8h-source.html">global.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="ct-Bot_8h-source.html">ct-Bot.h</a>&quot;</code><br>
+<code>#include &lt;pthread.h&gt;</code><br>
+
+<p>
+<a href="command_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Datenstrukturen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____attribute____.html">__attribute__</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____attribute____.html">__attribute__</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#a7a7521abb3a3664218d8dc0e3759f0f">MAX_PAYLOAD</a>&nbsp;&nbsp;&nbsp;255</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#7b73b86c514a68c1d7598f9bc98bbfea">low_read</a>&nbsp;&nbsp;&nbsp;tcp_read</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#07d2dc498afa0d8c5e1aefff80b8cac3">low_write</a>&nbsp;&nbsp;&nbsp;tcp_send_cmd</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#0d2679ce57e49642096d660616663997">low_write_data</a>&nbsp;&nbsp;&nbsp;tcp_write</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#82d1f04eaa5c68ac58359114ceb74cf4">CMD_STARTCODE</a>&nbsp;&nbsp;&nbsp;'&gt;'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#942e147f172bbd7100bddcca90ed3c3b">CMD_STOPCODE</a>&nbsp;&nbsp;&nbsp;'&lt;'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#05c19117c56d09759fc70d0167ec5b3d">CMD_SENS_IR</a>&nbsp;&nbsp;&nbsp;'I'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#afd1c62c002ec9e13df526774a61087e">CMD_SENS_ENC</a>&nbsp;&nbsp;&nbsp;'E'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#f713c4f6167335d20267ec2d0fc33adf">CMD_SENS_BORDER</a>&nbsp;&nbsp;&nbsp;'B'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#3d9b86bae56b6374862b7865a3548846">CMD_SENS_LINE</a>&nbsp;&nbsp;&nbsp;'L'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#d96f0a16395f789d7e94d01fed4bfd40">CMD_SENS_LDR</a>&nbsp;&nbsp;&nbsp;'H'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#ac5f604aee68879c01369f486b025ff2">CMD_SENS_TRANS</a>&nbsp;&nbsp;&nbsp;'T'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#46a160fb1f3b04fcb64c901a941b5c8d">CMD_SENS_DOOR</a>&nbsp;&nbsp;&nbsp;'D'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#52f23611d45ba9cdaad25f0d8380ddb0">CMD_SENS_MOUSE</a>&nbsp;&nbsp;&nbsp;'m'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#389c16135b110b6b0ca2d0863bc64999">CMD_SENS_ERROR</a>&nbsp;&nbsp;&nbsp;'e'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#9b17cedc408a9f7ed418e251d64aee6e">CMD_SENS_RC5</a>&nbsp;&nbsp;&nbsp;'R'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#f20644b9dc6c41fa417071a7c33ec60d">CMD_SENS_MOUSE_PICTURE</a>&nbsp;&nbsp;&nbsp;'P'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#88b061a4bde55ce568a54ff57ac62a21">CMD_AKT_MOT</a>&nbsp;&nbsp;&nbsp;'M'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#533b4e36c9f3b4ab106086c9641a151a">CMD_AKT_DOOR</a>&nbsp;&nbsp;&nbsp;'d'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#f41996e01ba17e6650e57d0dcc054528">CMD_AKT_SERVO</a>&nbsp;&nbsp;&nbsp;'S'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#99084516162a09cef2952d5a7470fad1">CMD_AKT_LED</a>&nbsp;&nbsp;&nbsp;'l'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#f0092161fc36fa91f800f716ee9656ab">CMD_AKT_LCD</a>&nbsp;&nbsp;&nbsp;'c'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#35cc95952674b5c7e9b0061af6a4742f">SUB_CMD_NORM</a>&nbsp;&nbsp;&nbsp;'N'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#36a6927a0c182d4ac9befc1822591ed1">SUB_CMD_LEFT</a>&nbsp;&nbsp;&nbsp;'L'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#4a7044f0609342595b895ffaaa46890f">SUB_CMD_RIGHT</a>&nbsp;&nbsp;&nbsp;'R'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#479a46ffbdd3b4cb3f267da58e53cb0a">SUB_LCD_CLEAR</a>&nbsp;&nbsp;&nbsp;'c'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#c45fffe9bff24aa77fed2ef6f6632d20">SUB_LCD_DATA</a>&nbsp;&nbsp;&nbsp;'D'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#00fa6a83c3509f9f1269de7356c8402b">SUB_LCD_CURSOR</a>&nbsp;&nbsp;&nbsp;'C'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#abd91abba7f22667a08ecb170bfa5f3a">CMD_LOG</a>&nbsp;&nbsp;&nbsp;'O'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#3c06065c98a7a1ebc7c2a4d603c3f550">CMD_WELCOME</a>&nbsp;&nbsp;&nbsp;'W'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#347814bf522306ffc3bfa5b7d0541a91">SUB_WELCOME_REAL</a>&nbsp;&nbsp;&nbsp;'R'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#21bf8292084b588d9d4449e56a389af0">SUB_WELCOME_SIM</a>&nbsp;&nbsp;&nbsp;'S'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#b7eaefb631c35626040981ef1e5e7244">DIR_REQUEST</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#612e81400985376231bd5ee886f4e21b">DIR_ANSWER</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#3107b4b7e7aa98754352de256a821405">command_lock</a>()&nbsp;&nbsp;&nbsp;pthread_mutex_lock(&amp;<a class="el" href="command_8h.html#a9df21c6a78a131c9496faa7dfc9eb7f">command_mutex</a>)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#bbf8902b221995e480d48b084c395dd3">command_unlock</a>()&nbsp;&nbsp;&nbsp;pthread_mutex_unlock(&amp;<a class="el" href="command_8h.html#a9df21c6a78a131c9496faa7dfc9eb7f">command_mutex</a>)</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#6a9035e586b2ff58e37a07e4bb0bc24c">command_read</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#3bcdfcfc05b9579251dfb3806ab385d3">command_write</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> command, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> subcommand, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *data_l, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *data_r, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> payload)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#a245f6ac80db1b5d3582c21d14b3a8d4">command_write_data</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> command, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> subcommand, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *data_l, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *data_r, const char *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#ff99c12510b091b6a2a100eb514bb44e">command_evaluate</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#5e6f6df20c68ab88ebd328cf00de8e2e">command_display</a> (command_t *command)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">pthread_mutex_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#a9df21c6a78a131c9496faa7dfc9eb7f">command_mutex</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">command_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="command_8h.html#c0048910da59c3a22177b20c8ce0b3b6">received_command</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Kommando-Management. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>20.12.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="533b4e36c9f3b4ab106086c9641a151a"></a><!-- doxytag: member="command.h::CMD_AKT_DOOR" ref="533b4e36c9f3b4ab106086c9641a151a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_AKT_DOOR&nbsp;&nbsp;&nbsp;'d'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Steuerung Klappe 
+</div>
+</div><p>
+<a class="anchor" name="f0092161fc36fa91f800f716ee9656ab"></a><!-- doxytag: member="command.h::CMD_AKT_LCD" ref="f0092161fc36fa91f800f716ee9656ab" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_AKT_LCD&nbsp;&nbsp;&nbsp;'c'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+LCD Anzeige 
+</div>
+</div><p>
+<a class="anchor" name="99084516162a09cef2952d5a7470fad1"></a><!-- doxytag: member="command.h::CMD_AKT_LED" ref="99084516162a09cef2952d5a7470fad1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_AKT_LED&nbsp;&nbsp;&nbsp;'l'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+LEDs steuern 
+</div>
+</div><p>
+<a class="anchor" name="88b061a4bde55ce568a54ff57ac62a21"></a><!-- doxytag: member="command.h::CMD_AKT_MOT" ref="88b061a4bde55ce568a54ff57ac62a21" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_AKT_MOT&nbsp;&nbsp;&nbsp;'M'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Motorgeschwindigkeit 
+</div>
+</div><p>
+<a class="anchor" name="f41996e01ba17e6650e57d0dcc054528"></a><!-- doxytag: member="command.h::CMD_AKT_SERVO" ref="f41996e01ba17e6650e57d0dcc054528" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_AKT_SERVO&nbsp;&nbsp;&nbsp;'S'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Steuerung Servo 
+</div>
+</div><p>
+<a class="anchor" name="abd91abba7f22667a08ecb170bfa5f3a"></a><!-- doxytag: member="command.h::CMD_LOG" ref="abd91abba7f22667a08ecb170bfa5f3a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_LOG&nbsp;&nbsp;&nbsp;'O'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Logausgaben 
+</div>
+</div><p>
+<a class="anchor" name="f713c4f6167335d20267ec2d0fc33adf"></a><!-- doxytag: member="command.h::CMD_SENS_BORDER" ref="f713c4f6167335d20267ec2d0fc33adf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_BORDER&nbsp;&nbsp;&nbsp;'B'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Abgrundsensoren 
+</div>
+</div><p>
+<a class="anchor" name="46a160fb1f3b04fcb64c901a941b5c8d"></a><!-- doxytag: member="command.h::CMD_SENS_DOOR" ref="46a160fb1f3b04fcb64c901a941b5c8d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_DOOR&nbsp;&nbsp;&nbsp;'D'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ueberwachung Klappe 
+</div>
+</div><p>
+<a class="anchor" name="afd1c62c002ec9e13df526774a61087e"></a><!-- doxytag: member="command.h::CMD_SENS_ENC" ref="afd1c62c002ec9e13df526774a61087e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_ENC&nbsp;&nbsp;&nbsp;'E'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Radencoder 
+</div>
+</div><p>
+<a class="anchor" name="389c16135b110b6b0ca2d0863bc64999"></a><!-- doxytag: member="command.h::CMD_SENS_ERROR" ref="389c16135b110b6b0ca2d0863bc64999" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_ERROR&nbsp;&nbsp;&nbsp;'e'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Motor- oder Batteriefehler 
+</div>
+</div><p>
+<a class="anchor" name="05c19117c56d09759fc70d0167ec5b3d"></a><!-- doxytag: member="command.h::CMD_SENS_IR" ref="05c19117c56d09759fc70d0167ec5b3d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_IR&nbsp;&nbsp;&nbsp;'I'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Abstandssensoren 
+</div>
+</div><p>
+<a class="anchor" name="d96f0a16395f789d7e94d01fed4bfd40"></a><!-- doxytag: member="command.h::CMD_SENS_LDR" ref="d96f0a16395f789d7e94d01fed4bfd40" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_LDR&nbsp;&nbsp;&nbsp;'H'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Helligkeitssensoren 
+</div>
+</div><p>
+<a class="anchor" name="3d9b86bae56b6374862b7865a3548846"></a><!-- doxytag: member="command.h::CMD_SENS_LINE" ref="3d9b86bae56b6374862b7865a3548846" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_LINE&nbsp;&nbsp;&nbsp;'L'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liniensensoren 
+</div>
+</div><p>
+<a class="anchor" name="52f23611d45ba9cdaad25f0d8380ddb0"></a><!-- doxytag: member="command.h::CMD_SENS_MOUSE" ref="52f23611d45ba9cdaad25f0d8380ddb0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_MOUSE&nbsp;&nbsp;&nbsp;'m'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Maussensor 
+</div>
+</div><p>
+<a class="anchor" name="f20644b9dc6c41fa417071a7c33ec60d"></a><!-- doxytag: member="command.h::CMD_SENS_MOUSE_PICTURE" ref="f20644b9dc6c41fa417071a7c33ec60d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_MOUSE_PICTURE&nbsp;&nbsp;&nbsp;'P'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Bild vom Maussensor in data_l steht, welche Nummer da 1. Pixel hat 
+</div>
+</div><p>
+<a class="anchor" name="9b17cedc408a9f7ed418e251d64aee6e"></a><!-- doxytag: member="command.h::CMD_SENS_RC5" ref="9b17cedc408a9f7ed418e251d64aee6e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_RC5&nbsp;&nbsp;&nbsp;'R'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+IR-Fernbedienung 
+</div>
+</div><p>
+<a class="anchor" name="ac5f604aee68879c01369f486b025ff2"></a><!-- doxytag: member="command.h::CMD_SENS_TRANS" ref="ac5f604aee68879c01369f486b025ff2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_SENS_TRANS&nbsp;&nbsp;&nbsp;'T'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ueberwachung Transportfach 
+</div>
+</div><p>
+<a class="anchor" name="82d1f04eaa5c68ac58359114ceb74cf4"></a><!-- doxytag: member="command.h::CMD_STARTCODE" ref="82d1f04eaa5c68ac58359114ceb74cf4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_STARTCODE&nbsp;&nbsp;&nbsp;'&gt;'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Anfang eines Kommandos 
+</div>
+</div><p>
+<a class="anchor" name="942e147f172bbd7100bddcca90ed3c3b"></a><!-- doxytag: member="command.h::CMD_STOPCODE" ref="942e147f172bbd7100bddcca90ed3c3b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_STOPCODE&nbsp;&nbsp;&nbsp;'&lt;'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ende eines Kommandos 
+</div>
+</div><p>
+<a class="anchor" name="3c06065c98a7a1ebc7c2a4d603c3f550"></a><!-- doxytag: member="command.h::CMD_WELCOME" ref="3c06065c98a7a1ebc7c2a4d603c3f550" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD_WELCOME&nbsp;&nbsp;&nbsp;'W'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kommado zum anmelden an c't-Sim 
+</div>
+</div><p>
+<a class="anchor" name="3107b4b7e7aa98754352de256a821405"></a><!-- doxytag: member="command.h::command_lock" ref="3107b4b7e7aa98754352de256a821405" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define command_lock          </td>
+          <td>(</td>
+&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%">&nbsp;&nbsp;&nbsp;pthread_mutex_lock(&amp;<a class="el" href="command_8h.html#a9df21c6a78a131c9496faa7dfc9eb7f">command_mutex</a>)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zugriff auf das Kommando 
+</div>
+</div><p>
+<a class="anchor" name="bbf8902b221995e480d48b084c395dd3"></a><!-- doxytag: member="command.h::command_unlock" ref="bbf8902b221995e480d48b084c395dd3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define command_unlock          </td>
+          <td>(</td>
+&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%">&nbsp;&nbsp;&nbsp;pthread_mutex_unlock(&amp;<a class="el" href="command_8h.html#a9df21c6a78a131c9496faa7dfc9eb7f">command_mutex</a>)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zugriff auf das Kommando 
+</div>
+</div><p>
+<a class="anchor" name="612e81400985376231bd5ee886f4e21b"></a><!-- doxytag: member="command.h::DIR_ANSWER" ref="612e81400985376231bd5ee886f4e21b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIR_ANSWER&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Richtung fuer Antworten 
+</div>
+</div><p>
+<a class="anchor" name="b7eaefb631c35626040981ef1e5e7244"></a><!-- doxytag: member="command.h::DIR_REQUEST" ref="b7eaefb631c35626040981ef1e5e7244" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIR_REQUEST&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Richtung fuer Anfragen 
+</div>
+</div><p>
+<a class="anchor" name="7b73b86c514a68c1d7598f9bc98bbfea"></a><!-- doxytag: member="command.h::low_read" ref="7b73b86c514a68c1d7598f9bc98bbfea" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define low_read&nbsp;&nbsp;&nbsp;tcp_read          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Which function to use to read data 
+</div>
+</div><p>
+<a class="anchor" name="07d2dc498afa0d8c5e1aefff80b8cac3"></a><!-- doxytag: member="command.h::low_write" ref="07d2dc498afa0d8c5e1aefff80b8cac3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define low_write&nbsp;&nbsp;&nbsp;tcp_send_cmd          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Which function to use to write data 
+</div>
+</div><p>
+<a class="anchor" name="0d2679ce57e49642096d660616663997"></a><!-- doxytag: member="command.h::low_write_data" ref="0d2679ce57e49642096d660616663997" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define low_write_data&nbsp;&nbsp;&nbsp;tcp_write          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Which function to use to write data 
+</div>
+</div><p>
+<a class="anchor" name="a7a7521abb3a3664218d8dc0e3759f0f"></a><!-- doxytag: member="command.h::MAX_PAYLOAD" ref="a7a7521abb3a3664218d8dc0e3759f0f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PAYLOAD&nbsp;&nbsp;&nbsp;255          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Max. Anzahl Bytes, die an ein Command angehaengt werden 
+</div>
+</div><p>
+<a class="anchor" name="36a6927a0c182d4ac9befc1822591ed1"></a><!-- doxytag: member="command.h::SUB_CMD_LEFT" ref="36a6927a0c182d4ac9befc1822591ed1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_CMD_LEFT&nbsp;&nbsp;&nbsp;'L'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kommmando fuer links 
+</div>
+</div><p>
+<a class="anchor" name="35cc95952674b5c7e9b0061af6a4742f"></a><!-- doxytag: member="command.h::SUB_CMD_NORM" ref="35cc95952674b5c7e9b0061af6a4742f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_CMD_NORM&nbsp;&nbsp;&nbsp;'N'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Standard-Kommando 
+</div>
+</div><p>
+<a class="anchor" name="4a7044f0609342595b895ffaaa46890f"></a><!-- doxytag: member="command.h::SUB_CMD_RIGHT" ref="4a7044f0609342595b895ffaaa46890f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_CMD_RIGHT&nbsp;&nbsp;&nbsp;'R'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kommando fuer rechts 
+</div>
+</div><p>
+<a class="anchor" name="479a46ffbdd3b4cb3f267da58e53cb0a"></a><!-- doxytag: member="command.h::SUB_LCD_CLEAR" ref="479a46ffbdd3b4cb3f267da58e53cb0a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_LCD_CLEAR&nbsp;&nbsp;&nbsp;'c'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Subkommando Clear Screen 
+</div>
+</div><p>
+<a class="anchor" name="00fa6a83c3509f9f1269de7356c8402b"></a><!-- doxytag: member="command.h::SUB_LCD_CURSOR" ref="00fa6a83c3509f9f1269de7356c8402b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_LCD_CURSOR&nbsp;&nbsp;&nbsp;'C'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Subkommando Cursorkoordinaten 
+</div>
+</div><p>
+<a class="anchor" name="c45fffe9bff24aa77fed2ef6f6632d20"></a><!-- doxytag: member="command.h::SUB_LCD_DATA" ref="c45fffe9bff24aa77fed2ef6f6632d20" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_LCD_DATA&nbsp;&nbsp;&nbsp;'D'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Subkommando Text ohne Cursor 
+</div>
+</div><p>
+<a class="anchor" name="347814bf522306ffc3bfa5b7d0541a91"></a><!-- doxytag: member="command.h::SUB_WELCOME_REAL" ref="347814bf522306ffc3bfa5b7d0541a91" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_WELCOME_REAL&nbsp;&nbsp;&nbsp;'R'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Subkommado zum anmelden eine realen Bots an c't-Sim 
+</div>
+</div><p>
+<a class="anchor" name="21bf8292084b588d9d4449e56a389af0"></a><!-- doxytag: member="command.h::SUB_WELCOME_SIM" ref="21bf8292084b588d9d4449e56a389af0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUB_WELCOME_SIM&nbsp;&nbsp;&nbsp;'S'          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Subkommado zum anmelden eines simulierten Bots an c't-Sim 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="5e6f6df20c68ab88ebd328cf00de8e2e"></a><!-- doxytag: member="command.h::command_display" ref="5e6f6df20c68ab88ebd328cf00de8e2e" args="(command_t *command)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_display           </td>
+          <td>(</td>
+          <td class="paramtype">command_t *&nbsp;</td>
+          <td class="paramname"> <em>command</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Gibt ein Kommando auf dem Bildschirm aus 
+</div>
+</div><p>
+<a class="anchor" name="ff99c12510b091b6a2a100eb514bb44e"></a><!-- doxytag: member="command.h::command_evaluate" ref="ff99c12510b091b6a2a100eb514bb44e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int command_evaluate           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Wertet das Kommando im Puffer aus return 1, wenn Kommando schon bearbeitet wurde, 0 sonst 
+</div>
+</div><p>
+<a class="anchor" name="6a9035e586b2ff58e37a07e4bb0bc24c"></a><!-- doxytag: member="command.h::command_read" ref="6a9035e586b2ff58e37a07e4bb0bc24c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int command_read           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liest ein Kommando ein, ist blockierend! greift auf <a class="el" href="command_8h.html#7b73b86c514a68c1d7598f9bc98bbfea">low_read()</a> zurueck <dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="command_8h.html#7b73b86c514a68c1d7598f9bc98bbfea">low_read()</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="3bcdfcfc05b9579251dfb3806ab385d3"></a><!-- doxytag: member="command.h::command_write" ref="3bcdfcfc05b9579251dfb3806ab385d3" args="(uint8 command, uint8 subcommand, int16 *data_l, int16 *data_r, uint8 payload)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_write           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>subcommand</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *&nbsp;</td>
+          <td class="paramname"> <em>data_l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *&nbsp;</td>
+          <td class="paramname"> <em>data_r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>payload</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Uebertraegt ein Kommando und wartet nicht auf eine Antwort <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>command</em>&nbsp;</td><td>Kennung zum Command </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>subcommand</em>&nbsp;</td><td>Kennung des Subcommand </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data_l</em>&nbsp;</td><td>Daten fuer den linken Kanal </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data_r</em>&nbsp;</td><td>Daten fuer den rechten Kanal </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>payload</em>&nbsp;</td><td>Anzahl der Bytes, die diesem Kommando als Payload folgen </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a245f6ac80db1b5d3582c21d14b3a8d4"></a><!-- doxytag: member="command.h::command_write_data" ref="a245f6ac80db1b5d3582c21d14b3a8d4" args="(uint8 command, uint8 subcommand, int16 *data_l, int16 *data_r, const char *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void command_write_data           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>subcommand</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *&nbsp;</td>
+          <td class="paramname"> <em>data_l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> *&nbsp;</td>
+          <td class="paramname"> <em>data_r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>data</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Gibt dem Simulator Daten mit Anhang und wartet nicht auf Antwort <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>command</em>&nbsp;</td><td>Kennung zum Command </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>subcommand</em>&nbsp;</td><td>Kennung des Subcommand </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data_l</em>&nbsp;</td><td>Daten fuer den linken Kanal </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data_r</em>&nbsp;</td><td>Daten fuer den rechten Kanal </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>Datenanhang an das eigentliche Command </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="a9df21c6a78a131c9496faa7dfc9eb7f"></a><!-- doxytag: member="command.h::command_mutex" ref="a9df21c6a78a131c9496faa7dfc9eb7f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_mutex_t <a class="el" href="command_8h.html#a9df21c6a78a131c9496faa7dfc9eb7f">command_mutex</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zugriff auf das Kommando 
+</div>
+</div><p>
+<a class="anchor" name="c0048910da59c3a22177b20c8ce0b3b6"></a><!-- doxytag: member="command.h::received_command" ref="c0048910da59c3a22177b20c8ce0b3b6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">command_t <a class="el" href="command_8h.html#c0048910da59c3a22177b20c8ce0b3b6">received_command</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Puffer fuer Kommandos 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

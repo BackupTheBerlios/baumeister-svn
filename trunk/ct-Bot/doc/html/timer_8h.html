@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: timer.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>timer.h-Dateireferenz</h1>Timer und Zaehler. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="ct-Bot_8h-source.html">ct-Bot.h</a>&quot;</code><br>
+
+<p>
+<a href="timer_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#632518e441ca992f307803737ff4d1ea">TIMER_2_CLOCK</a>&nbsp;&nbsp;&nbsp;5619</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#8c11b7233c1cb69ca3e7b7758399d098">TIMER_STEPS</a>&nbsp;&nbsp;&nbsp;10000</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#55c2ec6ee6d914d90c4aff3d9d2900ac">timer_get_us</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#5da10922d8c7c690cedfb081cbd251aa">timer_get_ms</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#7d04063f7a1f2fd2016628def5473c01">timer_get_s</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#66fc6b2428ce4b7312cae6478361be52">system_time_isr</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#d4f3ca56b0a4169e7b5f1a6a900c7d19">timer_get_ms_since</a> (uint16 old_s, uint16 old_ms)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8h.html#7efc647ef45d788535d90cfa4cc18d44">timer_2_init</a> (void)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Timer und Zaehler. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>26.12.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="632518e441ca992f307803737ff4d1ea"></a><!-- doxytag: member="timer.h::TIMER_2_CLOCK" ref="632518e441ca992f307803737ff4d1ea" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIMER_2_CLOCK&nbsp;&nbsp;&nbsp;5619          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Frequenz von Timer 2 in Hz 
+</div>
+</div><p>
+<a class="anchor" name="8c11b7233c1cb69ca3e7b7758399d098"></a><!-- doxytag: member="timer.h::TIMER_STEPS" ref="8c11b7233c1cb69ca3e7b7758399d098" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIMER_STEPS&nbsp;&nbsp;&nbsp;10000          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Mikrosekunden die zwischen zwei Timer-Aufrufen liegen 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="66fc6b2428ce4b7312cae6478361be52"></a><!-- doxytag: member="timer.h::system_time_isr" ref="66fc6b2428ce4b7312cae6478361be52" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void system_time_isr           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Funktion, um die Systemzeit zu berechnen 
+</div>
+</div><p>
+<a class="anchor" name="7efc647ef45d788535d90cfa4cc18d44"></a><!-- doxytag: member="timer.h::timer_2_init" ref="7efc647ef45d788535d90cfa4cc18d44" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_2_init           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisiert Timer 2 und startet ihn 
+</div>
+</div><p>
+<a class="anchor" name="5da10922d8c7c690cedfb081cbd251aa"></a><!-- doxytag: member="timer.h::timer_get_ms" ref="5da10922d8c7c690cedfb081cbd251aa" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_ms           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Funktion liefert den Millisekundenanteil der Systemzeit zurueck. <dl compact><dt><b>Rückgabe:</b></dt><dd>uint16 </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="d4f3ca56b0a4169e7b5f1a6a900c7d19"></a><!-- doxytag: member="timer.h::timer_get_ms_since" ref="d4f3ca56b0a4169e7b5f1a6a900c7d19" args="(uint16 old_s, uint16 old_ms)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_ms_since           </td>
+          <td>(</td>
+          <td class="paramtype">uint16&nbsp;</td>
+          <td class="paramname"> <em>old_s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16&nbsp;</td>
+          <td class="paramname"> <em>old_ms</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liefert die Millisekunden zurueck, die seit old_s, old_ms verstrichen sind <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>old_s</em>&nbsp;</td><td>alter Sekundenstand </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>old_ms</em>&nbsp;</td><td>alter Millisekundenstand </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="7d04063f7a1f2fd2016628def5473c01"></a><!-- doxytag: member="timer.h::timer_get_s" ref="7d04063f7a1f2fd2016628def5473c01" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_s           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Funktion liefert den Sekundenanteil der Systemzeit zurueck. <dl compact><dt><b>Rückgabe:</b></dt><dd>uint16 </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="55c2ec6ee6d914d90c4aff3d9d2900ac"></a><!-- doxytag: member="timer.h::timer_get_us" ref="55c2ec6ee6d914d90c4aff3d9d2900ac" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_us           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Funktion liefert den Mikrosekundenanteil der Systemzeit zurueck. <dl compact><dt><b>Rückgabe:</b></dt><dd>uint16 </dd></dl>
+
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

@@ -1,0 +1,2025 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: bot-logik.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>bot-logik.c-Dateireferenz</h1>High-Level Routinen fuer die Steuerung des c't-Bots. Diese Datei sollte der Einstiegspunkt fuer eigene Experimente sein, den Roboter zu steuern. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="ct-Bot_8h-source.html">ct-Bot.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="motor_8h-source.html">motor.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="sensor_8h-source.html">sensor.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="bot-logik_8h-source.html">bot-logik.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="display_8h-source.html">display.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="bot-local_8h-source.html">bot-local.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="rc5_8h-source.html">rc5.h</a>&quot;</code><br>
+<code>#include &quot;log.h&quot;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;math.h&gt;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9662aac30a48bd2b39089505c35dfa03"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_RIGHT" ref="9662aac30a48bd2b39089505c35dfa03" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_RIGHT</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7401760d24e78bcb24c838406f0eeab6"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_LEFT" ref="7401760d24e78bcb24c838406f0eeab6" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_LEFT</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3c50fa7db5eaaf424bd933f177693dea"></a><!-- doxytag: member="bot-logik.c::MEASURE_LEFT" ref="3c50fa7db5eaaf424bd933f177693dea" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>MEASURE_LEFT</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3eb09f2f54d67b857bfb79ae4ecb2864"></a><!-- doxytag: member="bot-logik.c::MEASURE_RIGHT" ref="3eb09f2f54d67b857bfb79ae4ecb2864" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>MEASURE_RIGHT</b>&nbsp;&nbsp;&nbsp;-1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#0326727285db27a444321f9d3b0895fb">INACTIVE</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#3a6d3cd70078e6046471ec528a09cd19">ACTIVE</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#5dea698950629d9e51d19c1a25be1c30">OVERRIDE</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#6dc5226facb3c80e38d2b4fbd911df5a">NOOVERRIDE</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#e33ae4ace8725f5e840f57a8082bc9e8">SUBSUCCESS</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#15c1e444b8546a73acec3dca5fcd99f3">SUBFAIL</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#39869984b4df081c3fcdd68d30e18cca">SUBRUNNING</a>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="cd94aca04c6435ab2890442596ac9074"></a><!-- doxytag: member="bot-logik.c::STATE_SIMPLE2_INIT" ref="cd94aca04c6435ab2890442596ac9074" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_SIMPLE2_INIT</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d85daa82317b235a6aae2129178c9d3b"></a><!-- doxytag: member="bot-logik.c::STATE_SIMPLE2_WORK" ref="d85daa82317b235a6aae2129178c9d3b" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_SIMPLE2_WORK</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="99a397b6a1c2343c5dbfb1cc979966b4"></a><!-- doxytag: member="bot-logik.c::STATE_SIMPLE2_DONE" ref="99a397b6a1c2343c5dbfb1cc979966b4" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_SIMPLE2_DONE</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ddcbd0eec71cda69580487f74a2c24c4"></a><!-- doxytag: member="bot-logik.c::STATE_START" ref="ddcbd0eec71cda69580487f74a2c24c4" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_START</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8688e0fdb114f3ca3695c5dbd27fd25a"></a><!-- doxytag: member="bot-logik.c::STATE_TURN" ref="8688e0fdb114f3ca3695c5dbd27fd25a" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_TURN</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b9561d93a9ececae05e6bc8de2be4166"></a><!-- doxytag: member="bot-logik.c::STATE_SCAN" ref="b9561d93a9ececae05e6bc8de2be4166" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_SCAN</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="876c82c946543cd70c141e41417138e0"></a><!-- doxytag: member="bot-logik.c::STATE_DONE" ref="876c82c946543cd70c141e41417138e0" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_DONE</b>&nbsp;&nbsp;&nbsp;3</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="30ae22b58900beb0af52a7b34aa7d5ad"></a><!-- doxytag: member="bot-logik.c::ANGLE_RESOLUTION" ref="30ae22b58900beb0af52a7b34aa7d5ad" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>ANGLE_RESOLUTION</b>&nbsp;&nbsp;&nbsp;10</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8688e0fdb114f3ca3695c5dbd27fd25a"></a><!-- doxytag: member="bot-logik.c::STATE_TURN" ref="8688e0fdb114f3ca3695c5dbd27fd25a" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_TURN</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="1d291ccf8b33c6e38c7537ca48740683"></a><!-- doxytag: member="bot-logik.c::STATE_FORWARD" ref="1d291ccf8b33c6e38c7537ca48740683" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_FORWARD</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2f61afd7e2bc27007b0794385aad64e4"></a><!-- doxytag: member="bot-logik.c::STATE_INTERRUPTED" ref="2f61afd7e2bc27007b0794385aad64e4" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STATE_INTERRUPTED</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="87c199d783d3429387c8ca4b20022ac7"></a><!-- doxytag: member="bot-logik.c::NORMAL_TURN" ref="87c199d783d3429387c8ca4b20022ac7" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>NORMAL_TURN</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3358bc72e6ff267e58c972202cc5d3b8"></a><!-- doxytag: member="bot-logik.c::STOP_TURN" ref="3358bc72e6ff267e58c972202cc5d3b8" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>STOP_TURN</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="08d49573faeee969712814c747e6d32d"></a><!-- doxytag: member="bot-logik.c::FULL_STOP" ref="08d49573faeee969712814c747e6d32d" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>FULL_STOP</b>&nbsp;&nbsp;&nbsp;3</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b6934d05dc3d32a282a3139f47d5f1b0"></a><!-- doxytag: member="bot-logik.c::INITIAL_TURN" ref="b6934d05dc3d32a282a3139f47d5f1b0" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>INITIAL_TURN</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f4ff2a4bab0bc918722708b0cca24faf"></a><!-- doxytag: member="bot-logik.c::GOTO_LOOP" ref="f4ff2a4bab0bc918722708b0cca24faf" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>GOTO_LOOP</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="fb51560ff615e59ba0038a609ff10eea"></a><!-- doxytag: member="bot-logik.c::CORRECT_HEAD" ref="fb51560ff615e59ba0038a609ff10eea" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORRECT_HEAD</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ee18339ee7705b67a6955cf2ce770f0e"></a><!-- doxytag: member="bot-logik.c::REACHED_POS" ref="ee18339ee7705b67a6955cf2ce770f0e" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>REACHED_POS</b>&nbsp;&nbsp;&nbsp;3</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3e2a14017c6df5f0244127c54cdff065"></a><!-- doxytag: member="bot-logik.c::CORRECT_NEAR" ref="3e2a14017c6df5f0244127c54cdff065" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORRECT_NEAR</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="18cfa134a0dda0cce6090df75c9ad495"></a><!-- doxytag: member="bot-logik.c::CORRECT_NONE" ref="18cfa134a0dda0cce6090df75c9ad495" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORRECT_NONE</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9581913415636c33c78a4bed8f5702b7"></a><!-- doxytag: member="bot-logik.c::CORRECT_FAR" ref="9581913415636c33c78a4bed8f5702b7" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORRECT_FAR</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2377ddeab07c7bfd3e616a6b90129add"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_TURN" ref="2377ddeab07c7bfd3e616a6b90129add" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_TURN</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f097a8cccbf4ed400593e6c40372c15e"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_SENS" ref="f097a8cccbf4ed400593e6c40372c15e" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_SENS</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="50c35fbe480d603eb24bfd31e5af5e45"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_TURN_BACK" ref="50c35fbe480d603eb24bfd31e5af5e45" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_TURN_BACK</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="53d5dccc7d6dbaa63a31c66d1e243313"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_FINISHED" ref="53d5dccc7d6dbaa63a31c66d1e243313" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_FINISHED</b>&nbsp;&nbsp;&nbsp;3</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="caaf94bce57f8b45c9b78544d4266c5a"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_CORRECT" ref="caaf94bce57f8b45c9b78544d4266c5a" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_CORRECT</b>&nbsp;&nbsp;&nbsp;4</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a8f3b6916339962a10c2c2cd77127dc7"></a><!-- doxytag: member="bot-logik.c::MEASURE_TURN" ref="a8f3b6916339962a10c2c2cd77127dc7" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>MEASURE_TURN</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d03e097c8a3276c0840512d8c3b25e3a"></a><!-- doxytag: member="bot-logik.c::FOUND_OBSTACLE" ref="d03e097c8a3276c0840512d8c3b25e3a" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>FOUND_OBSTACLE</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="1f2794ae2cb480906dfca72dfc665756"></a><!-- doxytag: member="bot-logik.c::MEASUREMENT_DONE" ref="1f2794ae2cb480906dfca72dfc665756" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>MEASUREMENT_DONE</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8d7b85c5e508d1d103cec0c5c12759ac"></a><!-- doxytag: member="bot-logik.c::CHECK_FOR_STARTPAD" ref="8d7b85c5e508d1d103cec0c5c12759ac" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_FOR_STARTPAD</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="11ec1db0316d4634199883773d49dfab"></a><!-- doxytag: member="bot-logik.c::CHECK_FOR_WALL_RIGHT" ref="11ec1db0316d4634199883773d49dfab" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_FOR_WALL_RIGHT</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="aabfe3c5edf4fcd705392d11c00694ed"></a><!-- doxytag: member="bot-logik.c::CHECK_FOR_WALL_LEFT" ref="aabfe3c5edf4fcd705392d11c00694ed" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_FOR_WALL_LEFT</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d89116ff2bf1876f1ad56fb661279a15"></a><!-- doxytag: member="bot-logik.c::CHECK_WALL_PRESENT" ref="d89116ff2bf1876f1ad56fb661279a15" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_WALL_PRESENT</b>&nbsp;&nbsp;&nbsp;3</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="027994149d387105741dc9fb86ad5546"></a><!-- doxytag: member="bot-logik.c::SOLVE_MAZE_LOOP" ref="027994149d387105741dc9fb86ad5546" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>SOLVE_MAZE_LOOP</b>&nbsp;&nbsp;&nbsp;4</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e3e22b9c3de628495e2234dcac8db3fe"></a><!-- doxytag: member="bot-logik.c::SOLVE_TURN_WALL" ref="e3e22b9c3de628495e2234dcac8db3fe" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>SOLVE_TURN_WALL</b>&nbsp;&nbsp;&nbsp;5</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0d5a077f4672fb175444c27cf24ce0cc"></a><!-- doxytag: member="bot-logik.c::CHECK_CONDITION" ref="0d5a077f4672fb175444c27cf24ce0cc" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_CONDITION</b>&nbsp;&nbsp;&nbsp;6</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="6b7a60f65cf0b4bc31af227bd2f61bd9"></a><!-- doxytag: member="bot-logik.c::TURN_TO_BRANCH" ref="6b7a60f65cf0b4bc31af227bd2f61bd9" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>TURN_TO_BRANCH</b>&nbsp;&nbsp;&nbsp;7</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="c7a00dfc8c916c00824ef74021a5f20f"></a><!-- doxytag: member="bot-logik.c::DETECTED_CROSS_BRANCH" ref="c7a00dfc8c916c00824ef74021a5f20f" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>DETECTED_CROSS_BRANCH</b>&nbsp;&nbsp;&nbsp;8</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="36417430b5cf89d2fe64216b415a22f9"></a><!-- doxytag: member="bot-logik.c::APPROACH_CORNER" ref="36417430b5cf89d2fe64216b415a22f9" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>APPROACH_CORNER</b>&nbsp;&nbsp;&nbsp;9</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="37e72f8700d7ea8975e6699f19fba63e"></a><!-- doxytag: member="bot-logik.c::AVOID_ABYSS" ref="37e72f8700d7ea8975e6699f19fba63e" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>AVOID_ABYSS</b>&nbsp;&nbsp;&nbsp;10</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b5dedf31b9e3170510dbb9b9ac5db00c"></a><!-- doxytag: member="bot-logik.c::REACHED_GOAL" ref="b5dedf31b9e3170510dbb9b9ac5db00c" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>REACHED_GOAL</b>&nbsp;&nbsp;&nbsp;11</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="74af589a577e0d25880b235e400e7898"></a><!-- doxytag: member="bot-logik.c::CORNER_LEFT" ref="74af589a577e0d25880b235e400e7898" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORNER_LEFT</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0e81ca9540e7c77f5c8f46ac907c720f"></a><!-- doxytag: member="bot-logik.c::CORNER_RIGHT" ref="0e81ca9540e7c77f5c8f46ac907c720f" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORNER_RIGHT</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="de558e02ab2cc8b95d2d04016f8b624f"></a><!-- doxytag: member="bot-logik.c::CHECK_LINE" ref="de558e02ab2cc8b95d2d04016f8b624f" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_LINE</b>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b25c05cbdbc5335286188f8e9b208aad"></a><!-- doxytag: member="bot-logik.c::FOLLOW_LINE" ref="b25c05cbdbc5335286188f8e9b208aad" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>FOLLOW_LINE</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f95fbf1c704d0465a9cef50721ebb221"></a><!-- doxytag: member="bot-logik.c::CHECK_BORDER" ref="f95fbf1c704d0465a9cef50721ebb221" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CHECK_BORDER</b>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5ba7e52d3697ee2bdcba94c537d2457e"></a><!-- doxytag: member="bot-logik.c::CORNER_TURN" ref="5ba7e52d3697ee2bdcba94c537d2457e" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORNER_TURN</b>&nbsp;&nbsp;&nbsp;3</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a90601786a5c4044a2a7c343c00df8b0"></a><!-- doxytag: member="bot-logik.c::CORRECT_POS" ref="a90601786a5c4044a2a7c343c00df8b0" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>CORRECT_POS</b>&nbsp;&nbsp;&nbsp;4</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7801f5cef26c6734f91478198d46ec89"></a><!-- doxytag: member="bot-logik.c::ADVANCE_CORNER" ref="7801f5cef26c6734f91478198d46ec89" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>ADVANCE_CORNER</b>&nbsp;&nbsp;&nbsp;5</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="83f20e9bed24017ca6772e0786fdc32a"></a><!-- doxytag: member="bot-logik.c::RETREAT_AND_STOP" ref="83f20e9bed24017ca6772e0786fdc32a" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>RETREAT_AND_STOP</b>&nbsp;&nbsp;&nbsp;6</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#5364dd616a391055e97f5053a5636d8f">activateBehaviour</a> (<a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a> function)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#05900625e5453c7b3aa49bff90708f95">deactivateBehaviour</a> (<a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a> function)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#914d5b7f25bc0878b16b9dbf5d91d497">switch_to_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *from, void *to, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> override)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#c2c6d0f5f8988fb5ef94a91f684fb9b9">return_from_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#1ed6103edf637f32e8c087d3de94a74e">deactivateAllBehaviours</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#90076bf17d21b6921f4209bf947e521b">bot_simple_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#e7062e384d0e57677524484b3d51b9b1">bot_simple2_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#87462e0a5550ea0c1db04f5dba34a4c4">bot_simple2</a> (<a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> light, <a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#e5be25e9c363aad2cecbdd99400be4c1">bot_scan_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#c90b72d04921aa70bbc2462ecdcb67da">bot_scan</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#07c919e69cc3a70be55b7efc49fdc435">bot_drive_square_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#77605632bca99f039fb9dee79427ba8b">bot_base_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#fdc8d5e8a5657be5a05bf9cba53ea318">bot_goto_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#f537d5e45f3f8339619d9dccf7d86e5d">bot_avoid_col_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#2941d3177f415a75eee81902f17b4357">bot_avoid_border_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#2b40e8bbee8abc508107d5543125c939">check_for_light</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#7faa2cb8e1a06b97afa5b654862d0694">is_obstacle_ahead</a> (<a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> distance)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#79bfc86bce0527d31a6b1ddc5dfbf71a">is_good_pillar_ahead</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#8133b7df260009234946a3df72cb4a51">bot_avoid_harm</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#cbcd64a9a8417c03e213538203e0ad6f">bot_drive</a> (<a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> curve, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> speed)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#e8ac26948cf65b72d78549e85390d861">bot_drive_distance_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#d78e5ec3affa455a2a98e9aafeb67c96">bot_drive_distance</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, <a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> curve, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> speed, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> cm)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#a49007295687228b4083f8f84208def4">bot_turn_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#c7850c6f0467e31ea713c1aee9aeec1f">bot_turn</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> degrees)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#0715ffa92cfea064c64e54a70f0e514d">bot_gotoxy_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#66ffb50cce578bc999db49a112e4536a">bot_gotoxy</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, float x, float y)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#2c062ffa3773a8a4bdd919307136550a">bot_explore_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#71a6cdf99d6d3930cbf3de0abf7b3d63">bot_explore</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, <a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>(*check)(void))</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#13ab2412d3184a21e1f88477638bef3e">bot_goto_light</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#9a0be2533f0d86e712f88ae2ce84051b">bot_do_slalom_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#7ecdb9986257583f840e1ebfe289664f">bot_do_slalom</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#235e23fa84b5b35022becc3343573954">bot_olympic_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#01d88ed92b0fa7e500fb764dc7cf6351">bot_check_wall_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#28ad905bab7234d3f28a984697b1a568">bot_check_wall</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, <a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> <a class="el" href="motor_8c.html#96703dcd865ea4cfb315cab528b061d8">direction</a>)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#eba53446cf8bd3a38183299f7d09360f">bot_measure_angle_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#b92c1329daf9ae10cbd240fca5bae935">bot_measure_angle</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, <a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> <a class="el" href="motor_8c.html#96703dcd865ea4cfb315cab528b061d8">direction</a>, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> distance)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#ffbbddf73be1adc7ccc66fa0b1c30e9e">bot_solve_maze_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#4df4c969b0f99a253af4f1cc83053f59">bot_solve_maze</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#fc60ceec962790640af859b4cdf30113">bot_follow_line_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#697f0c554ed200340351641b5dbb091d">bot_follow_line</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#a4df8978f0f499c194137f6b2bbbfa2c">bot_behave</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#f40d04435c85605225eee60c60b27f7f">new_behaviour</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> priority, void(*work)(struct <a class="el" href="struct__Behaviour__t.html">_Behaviour_t</a> *data), <a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> active)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#cf0dc306dfb8012aff1af96a12afac9b">bot_goto</a> (<a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> left, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> right, <a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#470cfbd96894cf0d1bde0cf57ae5aac7">col_zone_l</a> = ZONE_CLEAR</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#828233ac5f88723abac83088c5507b30">col_zone_r</a> = ZONE_CLEAR</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#fe8fa52ae98353a09146c66e97ec56e8">mot_l_goto</a> = 0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#afd83f14f4c0818e70ffa0269c81c6da">mot_r_goto</a> = 0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#669411c29f60d8d195bda83e64863766">speedWishLeft</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#a1ede73316c68d1c679b200fc85be929">speedWishRight</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#c58fd1d8a2f80877d4257430c149acb2">faktorWishLeft</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#599da2c4079941820c3bc1b223d16a11">faktorWishRight</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#e4ae6dc5ec210e7cfd5166121bda87c3">target_speed_l</a> = BOT_SPEED_STOP</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#76e12968209f543004114359695e8377">target_speed_r</a> = BOT_SPEED_STOP</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>(*)&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#02a59e5ee6d14769f86e3b14a33e0f8f">exploration_check_function</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#2e60d1e39de58442cab6619874ef4cb9">drive_distance_target</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#5ff509b80bac0699e5fd9ef68939f56f">drive_distance_curve</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#6c194382f22ff34145b5f1296587b5a0">drive_distance_speed</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#2555987a9af22ff5f83f7a4c42544509">target_angle</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#386086a3f4973946aabf168580512985">turn_direction</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#365207e7fb07cd4db79d049a1ded2244">target_x</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#65965c691346cf996ec91c2cd057ae31">target_y</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#35100c178e5773a32c0b01a01f7238ec">wall_detected</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#4b2e0de5d1cf4ec865c52073f26ea29a">check_direction</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#13885b8a1445ce8cb287060ab2ad50c3">wall_distance</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#dfa3aa51a96e9528de93e64d79ce3148">measure_direction</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#2f0faab9ce5f59a366336d4fb017e314">measure_distance</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#fef1fb973f5d3a06fd41eebed14a95bd">measured_angle</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#9961b0cb3b086f25d19d9e3fa4e2157b">start_heading</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8c.html#881f2834dd4f0d85a014d5e1c89113c8">behaviour</a> = NULL</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+High-Level Routinen fuer die Steuerung des c't-Bots. Diese Datei sollte der Einstiegspunkt fuer eigene Experimente sein, den Roboter zu steuern. 
+<p>
+<a class="el" href="bot-logik_8c.html#a4df8978f0f499c194137f6b2bbbfa2c">bot_behave()</a> arbeitet eine Liste von Verhalten ab. Jedes Verhalten kann entweder absolute Werte setzen, dann kommen niedrigerpriorisierte nicht mehr dran. Alternativ dazu kann es Modifikatoren aufstellen, die bei niedriger priorisierten angewendet werden. <a class="el" href="bot-logik_8c.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init()</a> baut diese Liste auf. Jede Verhaltensfunktion bekommt einen Verhaltensdatensatz uebergeben, in den Sie ihre Daten eintraegt<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) <p>
+Christoph Grimmer (<a href="mailto:c.grimmer@futurio.de">c.grimmer@futurio.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>01.12.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="3a6d3cd70078e6046471ec528a09cd19"></a><!-- doxytag: member="bot-logik.c::ACTIVE" ref="3a6d3cd70078e6046471ec528a09cd19" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ACTIVE&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Verhalten ist an 
+</div>
+</div><p>
+<a class="anchor" name="0326727285db27a444321f9d3b0895fb"></a><!-- doxytag: member="bot-logik.c::INACTIVE" ref="0326727285db27a444321f9d3b0895fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INACTIVE&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Verhalten ist aus 
+</div>
+</div><p>
+<a class="anchor" name="6dc5226facb3c80e38d2b4fbd911df5a"></a><!-- doxytag: member="bot-logik.c::NOOVERRIDE" ref="6dc5226facb3c80e38d2b4fbd911df5a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NOOVERRIDE&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Konstanten, wenn Verhalten beim Aufruf alte Wuensche nicht ueberschreiben sollen 
+</div>
+</div><p>
+<a class="anchor" name="5dea698950629d9e51d19c1a25be1c30"></a><!-- doxytag: member="bot-logik.c::OVERRIDE" ref="5dea698950629d9e51d19c1a25be1c30" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OVERRIDE&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Konstante, wenn Verhalten beim Aufruf alte Wuensche ueberschreiben sollen 
+</div>
+</div><p>
+<a class="anchor" name="15c1e444b8546a73acec3dca5fcd99f3"></a><!-- doxytag: member="bot-logik.c::SUBFAIL" ref="15c1e444b8546a73acec3dca5fcd99f3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUBFAIL&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Konstante fuer Behaviour_t-&gt;subResult: Aufgabe nicht abgeschlossen 
+</div>
+</div><p>
+<a class="anchor" name="39869984b4df081c3fcdd68d30e18cca"></a><!-- doxytag: member="bot-logik.c::SUBRUNNING" ref="39869984b4df081c3fcdd68d30e18cca" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUBRUNNING&nbsp;&nbsp;&nbsp;2          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Konstante fuer Behaviour_t-&gt;subResult: Aufgabe wird noch beabeitet 
+</div>
+</div><p>
+<a class="anchor" name="e33ae4ace8725f5e840f57a8082bc9e8"></a><!-- doxytag: member="bot-logik.c::SUBSUCCESS" ref="e33ae4ace8725f5e840f57a8082bc9e8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUBSUCCESS&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Konstante fuer Behaviour_t-&gt;subResult: Aufgabe erfolgreich abgeschlossen 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="5364dd616a391055e97f5053a5636d8f"></a><!-- doxytag: member="bot-logik.c::activateBehaviour" ref="5364dd616a391055e97f5053a5636d8f" args="(BehaviourFunc function)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void activateBehaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a>&nbsp;</td>
+          <td class="paramname"> <em>function</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Aktiviert eine Regel mit gegebener Funktion <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>function</em>&nbsp;</td><td>Die Funktion, die das Verhalten realisiert. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="2941d3177f415a75eee81902f17b4357"></a><!-- doxytag: member="bot-logik.c::bot_avoid_border_behaviour" ref="2941d3177f415a75eee81902f17b4357" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_avoid_border_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Verhindert, dass der Bot in Graeben faellt <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="f537d5e45f3f8339619d9dccf7d86e5d"></a><!-- doxytag: member="bot-logik.c::bot_avoid_col_behaviour" ref="f537d5e45f3f8339619d9dccf7d86e5d" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_avoid_col_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Passt auf, dass keine Kollision mit Hindernissen an der Front des Roboters geschieht. TODO: Diese Funktion ist nur ein Dummy-Beispiel, wie eine Kollisionsvermeidung aussehen koennte. Hier ist ein guter Einstiegspunkt fuer eigene Experimente und Algorithmen! <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="8133b7df260009234946a3df72cb4a51"></a><!-- doxytag: member="bot-logik.c::bot_avoid_harm" ref="8133b7df260009234946a3df72cb4a51" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> bot_avoid_harm           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten verhindert, dass dem Bot boese Dinge wie Kollisionen oder Abstuerze widerfahren. <dl compact><dt><b>Rückgabe:</b></dt><dd>Bestand Handlungsbedarf? True, wenn das Verhalten ausweichen musste, sonst False. TODO: Parameter einfuegen, der dem Verhalten vorschlaegt, wie zu reagieren ist. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="77605632bca99f039fb9dee79427ba8b"></a><!-- doxytag: member="bot-logik.c::bot_base_behaviour" ref="77605632bca99f039fb9dee79427ba8b" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_base_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das einfachste Grundverhalten <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a4df8978f0f499c194137f6b2bbbfa2c"></a><!-- doxytag: member="bot-logik.c::bot_behave" ref="a4df8978f0f499c194137f6b2bbbfa2c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_behave           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zentrale Verhaltens-Routine, wird regelmaessig aufgerufen. Dies ist der richtige Platz fuer eigene Routinen, um den Bot zu steuern. 
+</div>
+</div><p>
+<a class="anchor" name="8aa692028862cf5bf4387705feb9cc1b"></a><!-- doxytag: member="bot-logik.c::bot_behave_init" ref="8aa692028862cf5bf4387705feb9cc1b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_behave_init           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisert das ganze Verhalten 
+</div>
+</div><p>
+<a class="anchor" name="28ad905bab7234d3f28a984697b1a568"></a><!-- doxytag: member="bot-logik.c::bot_check_wall" ref="28ad905bab7234d3f28a984697b1a568" args="(Behaviour_t *caller, int8 direction)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_check_wall           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td>
+          <td class="paramname"> <em>direction</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten dreht sich um 45ï¿½ in die angegebene Richtung (0=rechts, 1=links) und prueft, ob auf dem Sensor auf der Seite der angegebenen Richtung eine Wand im Abstand von 12-22cm zu sehen ist. Wenn dem so ist, wird die Variable wall_present auf True gesetzt, sonst False 
+</div>
+</div><p>
+<a class="anchor" name="01d88ed92b0fa7e500fb764dc7cf6351"></a><!-- doxytag: member="bot-logik.c::bot_check_wall_behaviour" ref="01d88ed92b0fa7e500fb764dc7cf6351" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_check_wall_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten dreht sich um 45ï¿½ in die angegebene Richtung (0=rechts, 1=links) und prueft, ob auf dem Sensor auf der Seite der angegebenen Richtung eine Wand im Abstand von 12cm zu sehen ist. Wenn dem so ist, wird die Variable wall_present auf True gesetzt, sonst False 
+</div>
+</div><p>
+<a class="anchor" name="7ecdb9986257583f840e1ebfe289664f"></a><!-- doxytag: member="bot-logik.c::bot_do_slalom" ref="7ecdb9986257583f840e1ebfe289664f" args="(Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_do_slalom           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot zwischen einer Reihe beleuchteter Saeulen Slalom fahren. Das Verhalten ist wie <a class="el" href="bot-logik_8c.html#71a6cdf99d6d3930cbf3de0abf7b3d63">bot_explore()</a> in eine Anzahl von Teilschritten unterteilt. 1. Vor die aktuelle Saeule stellen, so dass sie zentral vor dem Bot und ungefaehr COL_CLOSEST (100 mm) entfernt ist. 2. 90 Grad nach rechts drehen. 3. In einem relativ engen Bogen 20 cm weit fahren. 4. Auf der rechten Seite des Bot nach einem Objekt suchen, dass a) im rechten Sektor des Bot liegt, also zwischen -45 Grad und -135 Grad zur Fahrtrichtung liegt, b) beleuchtet und c) nicht zu weit entfernt ist. Wenn es dieses Objekt gibt, wird es zur aktuellen Saeule und der Bot faehrt jetzt Slalom links. 5. Sonst zurueck drehen, 90 Grad drehen und Slalom rechts fahren. In diesem Schritt kann der Bot das Verhalten auch abbrechen, falls er gar kein Objekt mehr findet. 
+</div>
+</div><p>
+<a class="anchor" name="9a0be2533f0d86e712f88ae2ce84051b"></a><!-- doxytag: member="bot-logik.c::bot_do_slalom_behaviour" ref="9a0be2533f0d86e712f88ae2ce84051b" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_do_slalom_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot einen Slalom fahren. <dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#7ecdb9986257583f840e1ebfe289664f">bot_do_slalom()</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="cbcd64a9a8417c03e213538203e0ad6f"></a><!-- doxytag: member="bot-logik.c::bot_drive" ref="cbcd64a9a8417c03e213538203e0ad6f" args="(int8 curve, int16 speed)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_drive           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td>
+          <td class="paramname"> <em>curve</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>speed</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot in eine Richtung fahren. Dabei stellt es sicher, dass der Bot nicht gegen ein Hinderniss prallt oder abstuerzt. Es handelt sich hierbei nicht im eigentlichen Sinn um ein Verhalten, sondern ist nur eine Abstraktion der Motorkontrollen. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>curve</em>&nbsp;</td><td>Gibt an, ob der Bot eine Kurve fahren soll. Werte von -127 (So scharf wie moeglich links) ueber 0 (gerade aus) bis 127 (so scharf wie moeglich rechts) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>speed</em>&nbsp;</td><td>Gibt an, wie schnell der Bot fahren soll. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="d78e5ec3affa455a2a98e9aafeb67c96"></a><!-- doxytag: member="bot-logik.c::bot_drive_distance" ref="d78e5ec3affa455a2a98e9aafeb67c96" args="(Behaviour_t *caller, int8 curve, int16 speed, int16 cm)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_drive_distance           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td>
+          <td class="paramname"> <em>curve</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>cm</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot eine vorher festgelegte Strecke fahren. Dabei legt die Geschwindigkeit fest, ob der Bot vorwaerts oder rueckwaerts fahren soll. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>curve</em>&nbsp;</td><td>Gibt an, ob der Bot eine Kurve fahren soll. Werte von -127 (So scharf wie moeglich links) ueber 0 (gerade aus) bis 127 (so scharf wie moeglich rechts) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>speed</em>&nbsp;</td><td>Gibt an, wie schnell der Bot fahren soll. Negative Werte lassen den Bot rueckwaerts fahren. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>cm</em>&nbsp;</td><td>Gibt an, wie weit der Bot fahren soll. In cm :-) Die Strecke muss positiv sein, die Fahrtrichtung wird ueber speed geregelt. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e8ac26948cf65b72d78549e85390d861"></a><!-- doxytag: member="bot-logik.c::bot_drive_distance_behaviour" ref="e8ac26948cf65b72d78549e85390d861" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_drive_distance_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot eine vorher festgelegte Strecke fahren. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#d78e5ec3affa455a2a98e9aafeb67c96">bot_drive_distance()</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="07c919e69cc3a70be55b7efc49fdc435"></a><!-- doxytag: member="bot-logik.c::bot_drive_square_behaviour" ref="07c919e69cc3a70be55b7efc49fdc435" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_drive_square_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Laesst den Roboter ein Quadrat abfahren. Einfaches Beispiel fuer ein Verhalten, das einen Zustand besitzt. Es greift auf andere Behaviours zurueck und setzt daher selbst keine speedWishes. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="71a6cdf99d6d3930cbf3de0abf7b3d63"></a><!-- doxytag: member="bot-logik.c::bot_explore" ref="71a6cdf99d6d3930cbf3de0abf7b3d63" args="(Behaviour_t *caller, int8(*check)(void))" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_explore           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>(*)(void)&nbsp;</td>
+          <td class="paramname"> <em>check</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Aktiviert bot_explore_behaviour. 
+</div>
+</div><p>
+<a class="anchor" name="2c062ffa3773a8a4bdd919307136550a"></a><!-- doxytag: member="bot-logik.c::bot_explore_behaviour" ref="2c062ffa3773a8a4bdd919307136550a" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_explore_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Roboter den Raum durchsuchen. Das Verhalten hat mehrere unterschiedlich Zustaende: 1. Zu einer Wand oder einem anderen Hindernis fahren. 2. Zu einer Seite drehen, bis der Bot parallel zur Wand ist. Es macht vielleicht Sinn, den Maussensor auszulesen, um eine Drehung um einen bestimmten Winkel zu realisieren. Allerdings muesste dafuer auch der Winkel des Bots zur Wand bekannt sein. 3. Eine feste Strecke parallel zur Wand vorwaerts fahren. Da bot_glance_behaviour abwechselnd zu beiden Seiten schaut, ist es fuer die Aufgabe, einer Wand auf einer Seite des Bots zu folgen, nur bedingt gewachsen und muss evtl. erweitert werden. 4. Senkrecht zur Wand drehen. Siehe 2. 5. Einen Bogen fahren, bis der Bot wieder auf ein Hindernis stoesst. Dann das Ganze von vorne beginnen, nur in die andere Richtung und mit einem weiteren Bogen. So erforscht der Bot einigermassen systematisch den Raum.<p>
+Da das Verhalten jeweils nach 10ms neu aufgerufen wird, muss der Bot sich 'merken', in welchem Zustand er sich gerade befindet. 
+</div>
+</div><p>
+<a class="anchor" name="697f0c554ed200340351641b5dbb091d"></a><!-- doxytag: member="bot-logik.c::bot_follow_line" ref="697f0c554ed200340351641b5dbb091d" args="(Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_follow_line           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Folgt einer Linie, sobald beide Liniensensoren ausloesen Die Linie sollte in etwa die Breite beider CNY70 haben 
+</div>
+</div><p>
+<a class="anchor" name="fc60ceec962790640af859b4cdf30113"></a><!-- doxytag: member="bot-logik.c::bot_follow_line_behaviour" ref="fc60ceec962790640af859b4cdf30113" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_follow_line_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Folgt einer Linie, sobald beide Liniensensoren ausloesen Die Linie sollte in etwa die Breite beider CNY70 haben 
+</div>
+</div><p>
+<a class="anchor" name="cf0dc306dfb8012aff1af96a12afac9b"></a><!-- doxytag: member="bot-logik.c::bot_goto" ref="cf0dc306dfb8012aff1af96a12afac9b" args="(int16 left, int16 right, Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_goto           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Drehe die Raeder um die gegebene Zahl an Encoder-Schritten weiter <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>left</em>&nbsp;</td><td>Schritte links </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>right</em>&nbsp;</td><td>Schritte rechts </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="fdc8d5e8a5657be5a05bf9cba53ea318"></a><!-- doxytag: member="bot-logik.c::bot_goto_behaviour" ref="fdc8d5e8a5657be5a05bf9cba53ea318" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_goto_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kuemmert sich intern um die Ausfuehrung der goto-Kommandos, <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#cf0dc306dfb8012aff1af96a12afac9b">bot_goto()</a> </dd></dl>
+
+<p>
+&lt; Muss der linke Motor noch drehen?<p>
+&lt; Muss der rechte Motor noch drehen? 
+</div>
+</div><p>
+<a class="anchor" name="13ab2412d3184a21e1f88477638bef3e"></a><!-- doxytag: member="bot-logik.c::bot_goto_light" ref="13ab2412d3184a21e1f88477638bef3e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_goto_light           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten dreht den Bot so, dass er auf eine Lichtquelle zufaehrt. 
+</div>
+</div><p>
+<a class="anchor" name="66ffb50cce578bc999db49a112e4536a"></a><!-- doxytag: member="bot-logik.c::bot_gotoxy" ref="66ffb50cce578bc999db49a112e4536a" args="(Behaviour_t *caller, float x, float y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_gotoxy           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten faehrt von der aktuellen Position zur angegebenen Position (x/y) 
+</div>
+</div><p>
+<a class="anchor" name="0715ffa92cfea064c64e54a70f0e514d"></a><!-- doxytag: member="bot-logik.c::bot_gotoxy_behaviour" ref="0715ffa92cfea064c64e54a70f0e514d" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_gotoxy_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten faehrt von der aktuellen Position zur angegebenen Position (x/y) <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="b92c1329daf9ae10cbd240fca5bae935"></a><!-- doxytag: member="bot-logik.c::bot_measure_angle" ref="b92c1329daf9ae10cbd240fca5bae935" args="(Behaviour_t *caller, int8 direction, int16 distance)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_measure_angle           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td>
+          <td class="paramname"> <em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>distance</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten dreht den Bot in die angegebene Richtung bis ein Hindernis im Sichtbereich erscheint, das eine Entfernung bis max. zur angegebenen Distanz zum Bot hat. 
+</div>
+</div><p>
+<a class="anchor" name="eba53446cf8bd3a38183299f7d09360f"></a><!-- doxytag: member="bot-logik.c::bot_measure_angle_behaviour" ref="eba53446cf8bd3a38183299f7d09360f" args="(Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_measure_angle_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten dreht den Bot in die angegebene Richtung bis ein Hindernis im Sichtbereich erscheint, das eine Entfernung bis max. zur angegebenen Distanz zum Bot hat. 
+</div>
+</div><p>
+<a class="anchor" name="235e23fa84b5b35022becc3343573954"></a><!-- doxytag: member="bot-logik.c::bot_olympic_behaviour" ref="235e23fa84b5b35022becc3343573954" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_olympic_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten setzt sich aus 3 Teilverhalten zusammen: Nach Licht suchen, auf das Licht zufahren, im Licht Slalom fahren. 
+</div>
+</div><p>
+<a class="anchor" name="c90b72d04921aa70bbc2462ecdcb67da"></a><!-- doxytag: member="bot-logik.c::bot_scan" ref="c90b72d04921aa70bbc2462ecdcb67da" args="(Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_scan           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Der Roboter faehrt einen Vollkreis und scannt dabei die Umgebung <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Der</em>&nbsp;</td><td>aufrufer </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e5be25e9c363aad2cecbdd99400be4c1"></a><!-- doxytag: member="bot-logik.c::bot_scan_behaviour" ref="e5be25e9c363aad2cecbdd99400be4c1" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_scan_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Der Roboter faehrt einen Vollkreis und scannt dabei die Umgebung <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="87462e0a5550ea0c1db04f5dba34a4c4"></a><!-- doxytag: member="bot-logik.c::bot_simple2" ref="87462e0a5550ea0c1db04f5dba34a4c4" args="(int16 light, Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_simple2           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>light</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Rufe das Simple2-Verhalten auf und uebergebe light <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>light</em>&nbsp;</td><td>Uebergabeparameter </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e7062e384d0e57677524484b3d51b9b1"></a><!-- doxytag: member="bot-logik.c::bot_simple2_behaviour" ref="e7062e384d0e57677524484b3d51b9b1" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_simple2_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ein ganz einfaches Beispiel fuer ein Hilfsverhalten, das selbst SpeedWishes aussert und nach getaner Arbeit die aufrufende Funktion wieder aktiviert Zudem prueft es, ob eine Uebergabebedingung erfuellt ist.<p>
+Zu diesem Verhalten gehoert die Botenfunktion <a class="el" href="bot-logik_8c.html#87462e0a5550ea0c1db04f5dba34a4c4">bot_simple2()</a><p>
+Hier kann man auf ganz einfache Weise die ersten Schritte wagen. Wer die Moeglichkeiten des ganzen Verhaltensframeworks ausschoepfen will, kann diese Funktion getrost auskommentieren und findet dann in <a class="el" href="bot-logik_8c.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init()</a> und <a class="el" href="bot-logik_8c.html#a4df8978f0f499c194137f6b2bbbfa2c">bot_behave()</a> weitere Hinweise fuer elegante Bot-Programmierung....<p>
+Das Verhalten ist per default abgeschaltet. Daher muss man es erst in <a class="el" href="bot-logik_8c.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init()</a> aktivieren. Dort steht aber bereits eine auskommentierte Zeile dazu, von der man nur die zwei Kommentarzeichen wegnehmen muss. Achtung, da <a class="el" href="bot-logik_8c.html#e7062e384d0e57677524484b3d51b9b1">bot_simple2_behaviour()</a> maximale Prioritaet hat, kommt es vor den anderen Regeln, wie dem Schutz vor Abgruenden, etc. zum Zuge Das sollte am Anfang nicht stoeren, spaeter sollte man jedoch die Prioritaet herabsetzen.<p>
+bot_simple2_behaviour faehrt den Bot solange geradeaus, bis es dunkler als im Uebergabeparameter spezifiziert ist wird<p>
+<dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="90076bf17d21b6921f4209bf947e521b"></a><!-- doxytag: member="bot-logik.c::bot_simple_behaviour" ref="90076bf17d21b6921f4209bf947e521b" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_simple_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ein ganz einfaches Verhalten, es hat maximale Prioritaet Hier kann man auf ganz einfache Weise die ersten Schritte wagen. Wer die Moeglichkeiten des ganzen Verhaltensframeworks ausschoepfen will, kann diese Funktion getrost auskommentieren und findet dann in <a class="el" href="bot-logik_8c.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init()</a> und <a class="el" href="bot-logik_8c.html#a4df8978f0f499c194137f6b2bbbfa2c">bot_behave()</a> weitere Hinweise fuer elegante Bot-Programmierung....<p>
+Das Verhalten ist per default abgeschaltet. Daher muss man es erst in <a class="el" href="bot-logik_8c.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init()</a> aktivieren. Dort steht aber bereits eine auskommentierte Zeile dazu, von der man nur die zwei Kommentarzeichen wegnehmen muss. Achtung, da <a class="el" href="bot-logik_8c.html#90076bf17d21b6921f4209bf947e521b">bot_simple_behaviour()</a> maximale Prioritaet hat, kommt es vor den anderen Regeln, wie dem Schutz vor Abgruenden, etc. zum Zuge Das sollte am Anfang nicht stoeren, spaeter sollte man jedoch die Prioritaet herabsetzen.<p>
+<dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="4df4c969b0f99a253af4f1cc83053f59"></a><!-- doxytag: member="bot-logik.c::bot_solve_maze" ref="4df4c969b0f99a253af4f1cc83053f59" args="(Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_solve_maze           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten findet seinen Weg durch ein Labyrinth, das nach gewissen Grundregeln gebaut ist in nicht immer optimaler Weise aber in jedem Fall. Es arbeitet nach dem Hoehlenforscher-Algorithmus. Einschraenkung: Objekte im Labyrinth, die Endlossschleifen verursachen koennen, z.b. ein einzeln stehender Pfeiler im Labyrinth um den der Bot dann immer wieder herum fahren wuerde. 
+</div>
+</div><p>
+<a class="anchor" name="ffbbddf73be1adc7ccc66fa0b1c30e9e"></a><!-- doxytag: member="bot-logik.c::bot_solve_maze_behaviour" ref="ffbbddf73be1adc7ccc66fa0b1c30e9e" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_solve_maze_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten findet seinen Weg durch ein Labyrinth, das nach gewissen Grundregeln gebaut ist in nicht immer optimaler Weise aber in jedem Fall. Es arbeitet nach dem Hoehlenforscher-Algorithmus. Einschraenkung: Objekte im Labyrinth, die Endlossschleifen verursachen koennen, z.b. ein einzeln stehender Pfeiler im Labyrinth um den der Bot dann immer wieder herum fahren wuerde. 
+</div>
+</div><p>
+<a class="anchor" name="c7850c6f0467e31ea713c1aee9aeec1f"></a><!-- doxytag: member="bot-logik.c::bot_turn" ref="c7850c6f0467e31ea713c1aee9aeec1f" args="(Behaviour_t *caller, int16 degrees)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_turn           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>degrees</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Dreht den Bot im mathematisch positiven Sinn. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>degrees</em>&nbsp;</td><td>Grad, um die der Bot gedreht wird. Negative Zahlen drehen im (mathematisch negativen) Uhrzeigersinn. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a49007295687228b4083f8f84208def4"></a><!-- doxytag: member="bot-logik.c::bot_turn_behaviour" ref="a49007295687228b4083f8f84208def4" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_turn_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot eine Punktdrehung durchfuehren. Drehen findet in vier Schritten statt. Die Drehung wird dabei bei Winkeln &gt; 45 Grad zunaechst mit maximaler Geschwindigkeit ausgefuehrt. Bei kleineren Winkeln oder wenn nur noch 45 Grad zu drehen sind, nur noch mit normaler Geschwindigkeit <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#c7850c6f0467e31ea713c1aee9aeec1f">bot_turn()</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="2b40e8bbee8abc508107d5543125c939"></a><!-- doxytag: member="bot-logik.c::check_for_light" ref="2b40e8bbee8abc508107d5543125c939" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> check_for_light           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Gibt aus, ob der Bot Licht sehen kann. <dl compact><dt><b>Rückgabe:</b></dt><dd>True, wenn der Bot Licht sieht, sonst False. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="1ed6103edf637f32e8c087d3de94a74e"></a><!-- doxytag: member="bot-logik.c::deactivateAllBehaviours" ref="1ed6103edf637f32e8c087d3de94a74e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deactivateAllBehaviours           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Deaktiviert alle Verhalten bis auf Grundverhalten. Bei Verhaltensauswahl werden die Aktivitaeten vorher in die Verhaltens-Auswahlvariable gesichert. 
+</div>
+</div><p>
+<a class="anchor" name="05900625e5453c7b3aa49bff90708f95"></a><!-- doxytag: member="bot-logik.c::deactivateBehaviour" ref="05900625e5453c7b3aa49bff90708f95" args="(BehaviourFunc function)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deactivateBehaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a>&nbsp;</td>
+          <td class="paramname"> <em>function</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Deaktiviert eine Regel mit gegebener Funktion <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>function</em>&nbsp;</td><td>Die Funktion, die das Verhalten realisiert. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="79bfc86bce0527d31a6b1ddc5dfbf71a"></a><!-- doxytag: member="bot-logik.c::is_good_pillar_ahead" ref="79bfc86bce0527d31a6b1ddc5dfbf71a" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> is_good_pillar_ahead           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Gibt aus, ob der Bot eine fuer sein Slalomverhalten geeignete Saeule vor sich hat. <dl compact><dt><b>Rückgabe:</b></dt><dd>True, wenn er eine solche Saeule vor sich hat, sonst False. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="7faa2cb8e1a06b97afa5b654862d0694"></a><!-- doxytag: member="bot-logik.c::is_obstacle_ahead" ref="7faa2cb8e1a06b97afa5b654862d0694" args="(int16 distance)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> is_obstacle_ahead           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>distance</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Die Funktion gibt aus, ob sich innerhalb einer gewissen Entfernung ein Objekt-Hindernis befindet. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>distance</em>&nbsp;</td><td>Entfernung in mm, bis zu welcher ein Objekt gesichtet wird. </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Rückgabe:</b></dt><dd>Gibt False (0) zurueck, wenn kein Objekt innerhalb von distance gesichtet wird. Ansonsten die Differenz zwischen dem linken und rechten Sensor. Negative Werte besagen, dass das Objekt naeher am linken, positive, dass es naeher am rechten Sensor ist. Sollten beide Sensoren den gleichen Wert haben, gibt die Funktion 1 zurueck, um von False unterscheiden zu koennen. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="f40d04435c85605225eee60c60b27f7f"></a><!-- doxytag: member="bot-logik.c::new_behaviour" ref="f40d04435c85605225eee60c60b27f7f" args="(uint8 priority, void(*work)(struct _Behaviour_t *data), int8 active)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a>* new_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>priority</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(struct <a class="el" href="struct__Behaviour__t.html">_Behaviour_t</a> *data)&nbsp;</td>
+          <td class="paramname"> <em>work</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td>
+          <td class="paramname"> <em>active</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Erzeugt ein neues Verhalten <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>priority</em>&nbsp;</td><td>Die Prioritaet </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>*work</em>&nbsp;</td><td>Den Namen der Funktion, die sich drum kuemmert </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="c2c6d0f5f8988fb5ef94a91f684fb9b9"></a><!-- doxytag: member="bot-logik.c::return_from_behaviour" ref="c2c6d0f5f8988fb5ef94a91f684fb9b9" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void return_from_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kehrt zum aufrufenden Verhalten zurueck <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>running</em>&nbsp;</td><td>laufendes Verhalten </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="914d5b7f25bc0878b16b9dbf5d91d497"></a><!-- doxytag: member="bot-logik.c::switch_to_behaviour" ref="914d5b7f25bc0878b16b9dbf5d91d497" args="(Behaviour_t *from, void *to, uint8 override)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void switch_to_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&nbsp;</td>
+          <td class="paramname"> <em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>override</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ruft ein anderes Verhalten auf und merkt sich den Ruecksprung <a class="el" href="bot-logik_8c.html#c2c6d0f5f8988fb5ef94a91f684fb9b9">return_from_behaviour()</a> kehrt dann spaeter wieder zum aufrufenden Verhalten zurueck <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>from</em>&nbsp;</td><td>aufrufendes Verhalten </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>to</em>&nbsp;</td><td>aufgerufenes Verhalten </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>override</em>&nbsp;</td><td>Hier sind zwei Werte Moeglich: 1. OVERRIDE : Das Zielverhalten to wird aktiviert, auch wenn es noch aktiv ist. Das Verhalten, das es zuletzt aufgerufen hat wird dadurch automatisch wieder aktiv und muss selbst sein eigenes Feld subResult auswerten, um zu pruefen, ob das gewuenschte Ziel erreicht wurde, oder vorher ein Abbruch stattgefunden hat. 2. NOOVERRIDE : Das Zielverhalten wird nur aktiviert, wenn es gerade nichts zu tun hat. In diesem Fall kann der Aufrufer aus seinem eigenen subResult auslesen, ob seibem Wunsch Folge geleistet wurde. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="881f2834dd4f0d85a014d5e1c89113c8"></a><!-- doxytag: member="bot-logik.c::behaviour" ref="881f2834dd4f0d85a014d5e1c89113c8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a>* <a class="el" href="bot-logik_8h.html#881f2834dd4f0d85a014d5e1c89113c8">behaviour</a> = NULL          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liste mit allen Verhalten 
+</div>
+</div><p>
+<a class="anchor" name="4b2e0de5d1cf4ec865c52073f26ea29a"></a><!-- doxytag: member="bot-logik.c::check_direction" ref="4b2e0de5d1cf4ec865c52073f26ea29a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> <a class="el" href="bot-logik_8c.html#4b2e0de5d1cf4ec865c52073f26ea29a">check_direction</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+enthaelt CHECK_WALL_LEFT oder CHECK_WALL_RIGHT 
+</div>
+</div><p>
+<a class="anchor" name="470cfbd96894cf0d1bde0cf57ae5aac7"></a><!-- doxytag: member="bot-logik.c::col_zone_l" ref="470cfbd96894cf0d1bde0cf57ae5aac7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="el" href="bot-logik_8c.html#470cfbd96894cf0d1bde0cf57ae5aac7">col_zone_l</a> = ZONE_CLEAR          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kollisionszone, in der sich der linke Sensor befindet 
+</div>
+</div><p>
+<a class="anchor" name="828233ac5f88723abac83088c5507b30"></a><!-- doxytag: member="bot-logik.c::col_zone_r" ref="828233ac5f88723abac83088c5507b30" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="el" href="bot-logik_8c.html#828233ac5f88723abac83088c5507b30">col_zone_r</a> = ZONE_CLEAR          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kollisionszone, in der sich der rechte Sensor befindet 
+</div>
+</div><p>
+<a class="anchor" name="5ff509b80bac0699e5fd9ef68939f56f"></a><!-- doxytag: member="bot-logik.c::drive_distance_curve" ref="5ff509b80bac0699e5fd9ef68939f56f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> <a class="el" href="bot-logik_8c.html#5ff509b80bac0699e5fd9ef68939f56f">drive_distance_curve</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kruemmung der zu fahrenden Strecke. 
+</div>
+</div><p>
+<a class="anchor" name="6c194382f22ff34145b5f1296587b5a0"></a><!-- doxytag: member="bot-logik.c::drive_distance_speed" ref="6c194382f22ff34145b5f1296587b5a0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#6c194382f22ff34145b5f1296587b5a0">drive_distance_speed</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Angepeilte Geschwindigkeit. 
+</div>
+</div><p>
+<a class="anchor" name="2e60d1e39de58442cab6619874ef4cb9"></a><!-- doxytag: member="bot-logik.c::drive_distance_target" ref="2e60d1e39de58442cab6619874ef4cb9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#2e60d1e39de58442cab6619874ef4cb9">drive_distance_target</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zu fahrende Distanz bzw. angepeilter Stand der Radencoder sensEncL bzw. sensEncR 
+</div>
+</div><p>
+<a class="anchor" name="02a59e5ee6d14769f86e3b14a33e0f8f"></a><!-- doxytag: member="bot-logik.c::exploration_check_function" ref="02a59e5ee6d14769f86e3b14a33e0f8f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>(*) <a class="el" href="bot-logik_8c.html#02a59e5ee6d14769f86e3b14a33e0f8f">exploration_check_function</a>(void)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Die Funktion, mit der das <a class="el" href="bot-logik_8c.html#2c062ffa3773a8a4bdd919307136550a">bot_explore_behaviour()</a> feststellt, ob es etwas gefunden hat. Die Funktion muss True (1) zurueck geben, wenn dem so ist, sonst False (0). Beispiele fuer eine solche Funktion sind check_for_light, is_good_pillar_ahead etc. 
+</div>
+</div><p>
+<a class="anchor" name="c58fd1d8a2f80877d4257430c149acb2"></a><!-- doxytag: member="bot-logik.c::faktorWishLeft" ref="c58fd1d8a2f80877d4257430c149acb2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="bot-logik_8c.html#c58fd1d8a2f80877d4257430c149acb2">faktorWishLeft</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Puffervariablen fuer die Verhaltensfunktionen Modifikationsfaktor links 
+</div>
+</div><p>
+<a class="anchor" name="599da2c4079941820c3bc1b223d16a11"></a><!-- doxytag: member="bot-logik.c::faktorWishRight" ref="599da2c4079941820c3bc1b223d16a11" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="bot-logik_8c.html#599da2c4079941820c3bc1b223d16a11">faktorWishRight</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Puffervariablen fuer die Verhaltensfunktionen Modifikationsfaktor rechts 
+</div>
+</div><p>
+<a class="anchor" name="dfa3aa51a96e9528de93e64d79ce3148"></a><!-- doxytag: member="bot-logik.c::measure_direction" ref="dfa3aa51a96e9528de93e64d79ce3148" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> <a class="el" href="bot-logik_8c.html#dfa3aa51a96e9528de93e64d79ce3148">measure_direction</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+enthaelt MEASURE_RIGHT oder MEASURE_LEFT 
+</div>
+</div><p>
+<a class="anchor" name="2f0faab9ce5f59a366336d4fb017e314"></a><!-- doxytag: member="bot-logik.c::measure_distance" ref="2f0faab9ce5f59a366336d4fb017e314" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#2f0faab9ce5f59a366336d4fb017e314">measure_distance</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+enthaelt maximale Messentfernung, enthaelt nach der Messung die Entfernung 
+</div>
+</div><p>
+<a class="anchor" name="fef1fb973f5d3a06fd41eebed14a95bd"></a><!-- doxytag: member="bot-logik.c::measured_angle" ref="fef1fb973f5d3a06fd41eebed14a95bd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#fef1fb973f5d3a06fd41eebed14a95bd">measured_angle</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+enthaelt gedrehten Winkel oder 0, falls nichts entdeckt 
+</div>
+</div><p>
+<a class="anchor" name="fe8fa52ae98353a09146c66e97ec56e8"></a><!-- doxytag: member="bot-logik.c::mot_l_goto" ref="fe8fa52ae98353a09146c66e97ec56e8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#fe8fa52ae98353a09146c66e97ec56e8">mot_l_goto</a> = 0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Speichert wie weit der linke Motor drehen soll 
+</div>
+</div><p>
+<a class="anchor" name="afd83f14f4c0818e70ffa0269c81c6da"></a><!-- doxytag: member="bot-logik.c::mot_r_goto" ref="afd83f14f4c0818e70ffa0269c81c6da" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#afd83f14f4c0818e70ffa0269c81c6da">mot_r_goto</a> = 0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Speichert wie weit der rechte Motor drehen soll 
+</div>
+</div><p>
+<a class="anchor" name="669411c29f60d8d195bda83e64863766"></a><!-- doxytag: member="bot-logik.c::speedWishLeft" ref="669411c29f60d8d195bda83e64863766" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#669411c29f60d8d195bda83e64863766">speedWishLeft</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Puffervariablen fuer die Verhaltensfunktionen absolut Geschwindigkeit links 
+</div>
+</div><p>
+<a class="anchor" name="a1ede73316c68d1c679b200fc85be929"></a><!-- doxytag: member="bot-logik.c::speedWishRight" ref="a1ede73316c68d1c679b200fc85be929" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#a1ede73316c68d1c679b200fc85be929">speedWishRight</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Puffervariablen fuer die Verhaltensfunktionen absolut Geschwindigkeit rechts 
+</div>
+</div><p>
+<a class="anchor" name="9961b0cb3b086f25d19d9e3fa4e2157b"></a><!-- doxytag: member="bot-logik.c::start_heading" ref="9961b0cb3b086f25d19d9e3fa4e2157b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#9961b0cb3b086f25d19d9e3fa4e2157b">start_heading</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Blickwinkel des Bots zu Beginn der Messung 
+</div>
+</div><p>
+<a class="anchor" name="2555987a9af22ff5f83f7a4c42544509"></a><!-- doxytag: member="bot-logik.c::target_angle" ref="2555987a9af22ff5f83f7a4c42544509" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#2555987a9af22ff5f83f7a4c42544509">target_angle</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zielwinkel (Blickrichtung) 
+</div>
+</div><p>
+<a class="anchor" name="e4ae6dc5ec210e7cfd5166121bda87c3"></a><!-- doxytag: member="bot-logik.c::target_speed_l" ref="e4ae6dc5ec210e7cfd5166121bda87c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8h.html#e4ae6dc5ec210e7cfd5166121bda87c3">target_speed_l</a> = BOT_SPEED_STOP          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sollgeschwindigkeit linker Motor - darum kuemmert sich bot_base() 
+</div>
+</div><p>
+<a class="anchor" name="76e12968209f543004114359695e8377"></a><!-- doxytag: member="bot-logik.c::target_speed_r" ref="76e12968209f543004114359695e8377" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8h.html#76e12968209f543004114359695e8377">target_speed_r</a> = BOT_SPEED_STOP          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sollgeschwindigkeit rechter Motor - darum kuemmert sich bot_base() 
+</div>
+</div><p>
+<a class="anchor" name="365207e7fb07cd4db79d049a1ded2244"></a><!-- doxytag: member="bot-logik.c::target_x" ref="365207e7fb07cd4db79d049a1ded2244" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="bot-logik_8c.html#365207e7fb07cd4db79d049a1ded2244">target_x</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zielkoordinate X 
+</div>
+</div><p>
+<a class="anchor" name="65965c691346cf996ec91c2cd057ae31"></a><!-- doxytag: member="bot-logik.c::target_y" ref="65965c691346cf996ec91c2cd057ae31" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="bot-logik_8c.html#65965c691346cf996ec91c2cd057ae31">target_y</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zielkoordinate Y 
+</div>
+</div><p>
+<a class="anchor" name="386086a3f4973946aabf168580512985"></a><!-- doxytag: member="bot-logik.c::turn_direction" ref="386086a3f4973946aabf168580512985" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> <a class="el" href="bot-logik_8c.html#386086a3f4973946aabf168580512985">turn_direction</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Richtung der Drehung 
+</div>
+</div><p>
+<a class="anchor" name="35100c178e5773a32c0b01a01f7238ec"></a><!-- doxytag: member="bot-logik.c::wall_detected" ref="35100c178e5773a32c0b01a01f7238ec" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> <a class="el" href="bot-logik_8c.html#35100c178e5773a32c0b01a01f7238ec">wall_detected</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+enthaelt True oder False, je nach Ergebnis des Verhaltens 
+</div>
+</div><p>
+<a class="anchor" name="13885b8a1445ce8cb287060ab2ad50c3"></a><!-- doxytag: member="bot-logik.c::wall_distance" ref="13885b8a1445ce8cb287060ab2ad50c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8c.html#13885b8a1445ce8cb287060ab2ad50c3">wall_distance</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+enthaelt gemessene Entfernung 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:12 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

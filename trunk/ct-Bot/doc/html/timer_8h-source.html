@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: timer.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>timer.h</h1><a href="timer_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * c't-Sim - Robotersimulator fuer den c't-Bot</span>
+<a name="l00003"></a>00003 <span class="comment"> * </span>
+<a name="l00004"></a>00004 <span class="comment"> * This program is free software; you can redistribute it</span>
+<a name="l00005"></a>00005 <span class="comment"> * and/or modify it under the terms of the GNU General</span>
+<a name="l00006"></a>00006 <span class="comment"> * Public License as published by the Free Software</span>
+<a name="l00007"></a>00007 <span class="comment"> * Foundation; either version 2 of the License, or (at your</span>
+<a name="l00008"></a>00008 <span class="comment"> * option) any later version. </span>
+<a name="l00009"></a>00009 <span class="comment"> * This program is distributed in the hope that it will be </span>
+<a name="l00010"></a>00010 <span class="comment"> * useful, but WITHOUT ANY WARRANTY; without even the implied</span>
+<a name="l00011"></a>00011 <span class="comment"> * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR </span>
+<a name="l00012"></a>00012 <span class="comment"> * PURPOSE. See the GNU General Public License for more details.</span>
+<a name="l00013"></a>00013 <span class="comment"> * You should have received a copy of the GNU General Public </span>
+<a name="l00014"></a>00014 <span class="comment"> * License along with this program; if not, write to the Free </span>
+<a name="l00015"></a>00015 <span class="comment"> * Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,</span>
+<a name="l00016"></a>00016 <span class="comment"> * MA 02111-1307, USA.</span>
+<a name="l00017"></a>00017 <span class="comment"> * </span>
+<a name="l00018"></a>00018 <span class="comment"> */</span>
+<a name="l00019"></a>00019 
+<a name="l00026"></a>00026 <span class="preprocessor">#ifndef TIMER_H_</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define TIMER_H_</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include "<a class="code" href="ct-Bot_8h.html">ct-Bot.h</a>"</span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="preprocessor">#ifdef TIME_AVAILABLE</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>
+<a name="l00036"></a>00036         <span class="keyword">inline</span> <a class="code" href="global_8h.html#fc4adc9111e54b3163b6126ce951ecc3">uint16</a> <a class="code" href="timer_8h.html#55c2ec6ee6d914d90c4aff3d9d2900ac">timer_get_us</a>(<span class="keywordtype">void</span>);
+<a name="l00037"></a>00037         
+<a name="l00042"></a>00042         <span class="keyword">inline</span> <a class="code" href="global_8h.html#fc4adc9111e54b3163b6126ce951ecc3">uint16</a> <a class="code" href="timer_8h.html#5da10922d8c7c690cedfb081cbd251aa">timer_get_ms</a>(<span class="keywordtype">void</span>);
+<a name="l00043"></a>00043         
+<a name="l00048"></a>00048         <span class="keyword">inline</span> <a class="code" href="global_8h.html#fc4adc9111e54b3163b6126ce951ecc3">uint16</a> <a class="code" href="timer_8h.html#7d04063f7a1f2fd2016628def5473c01">timer_get_s</a>(<span class="keywordtype">void</span>);
+<a name="l00049"></a>00049 
+<a name="l00052"></a>00052         <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#66fc6b2428ce4b7312cae6478361be52">system_time_isr</a>(<span class="keywordtype">void</span>);
+<a name="l00053"></a>00053         
+<a name="l00059"></a>00059         <a class="code" href="global_8h.html#fc4adc9111e54b3163b6126ce951ecc3">uint16</a> <a class="code" href="timer_8h.html#d4f3ca56b0a4169e7b5f1a6a900c7d19">timer_get_ms_since</a>(<a class="code" href="global_8h.html#fc4adc9111e54b3163b6126ce951ecc3">uint16</a> old_s, <a class="code" href="global_8h.html#fc4adc9111e54b3163b6126ce951ecc3">uint16</a> old_ms );
+<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span>
+<a name="l00062"></a>00062 <span class="comment">// Die Werte fuer TIMER_X_CLOCK sind Angaben in Hz</span>
+<a name="l00063"></a>00063 
+<a name="l00067"></a><a class="code" href="timer_8h.html#632518e441ca992f307803737ff4d1ea">00067</a> <span class="preprocessor">#define TIMER_2_CLOCK   5619    // Derzeit genutzt fuer RC5-Dekodierung</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span>
+<a name="l00072"></a>00072 <span class="preprocessor">#ifdef MCU</span>
+<a name="l00073"></a>00073 <span class="preprocessor"></span><span class="comment">//      #define TIMER_STEPS     (1 000 000/TIMER_2_CLOCK)</span>
+<a name="l00074"></a>00074 <span class="preprocessor">        #define TIMER_STEPS 178</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span>        <span class="comment">/* Auf dem PC koppeln wir das an die Zeitbasis des Simulators, derzeit 10ms also 10000 Microsekunden */</span>
+<a name="l00077"></a><a class="code" href="timer_8h.html#8c11b7233c1cb69ca3e7b7758399d098">00077</a> <span class="preprocessor">        #define TIMER_STEPS     10000</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span>
+<a name="l00082"></a>00082 <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#7efc647ef45d788535d90cfa4cc18d44">timer_2_init</a>(<span class="keywordtype">void</span>);
+<a name="l00083"></a>00083 <span class="preprocessor">#endif</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:12 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

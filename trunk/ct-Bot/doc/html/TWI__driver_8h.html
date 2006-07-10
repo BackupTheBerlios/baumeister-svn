@@ -1,0 +1,556 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: TWI_driver.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>TWI_driver.h-Dateireferenz</h1>TWI Treiber. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &lt;avr/io.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="global_8h-source.html">global.h</a>&quot;</code><br>
+
+<p>
+<a href="TWI__driver_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Datenstrukturen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtx__type.html">tx_type</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="069887fa3aa4943a06f70a4ba942557d"></a><!-- doxytag: member="TWI_driver.h::TWI_driver_H" ref="069887fa3aa4943a06f70a4ba942557d" args="" -->
+#define&nbsp;</td><td class="memItemRight" valign="bottom"><b>TWI_driver_H</b>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#649b8f01fd6c0f47ff3cbddaeba63bfb">W</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#5c71a5e59a53413cd6c270266d63b031">R</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#637d72a77fbdbdc02cf39db3848888ba">OWN_ADR</a>&nbsp;&nbsp;&nbsp;60</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#a90cac659d18e8ef6294c7ae337f6b58">SUCCESS</a>&nbsp;&nbsp;&nbsp;0xFF</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#3018c7600b7bb9866400596a56a57af7">START</a>&nbsp;&nbsp;&nbsp;0x08</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#9bacece2c20a7319735a4973390fb096">REP_START</a>&nbsp;&nbsp;&nbsp;0x10</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#5be860e6d9d8fbcd84fbbe8a709e02bf">MTX_ADR_ACK</a>&nbsp;&nbsp;&nbsp;0x18</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#184a1ada7015ba890834c8e6413e53a9">MTX_ADR_NACK</a>&nbsp;&nbsp;&nbsp;0x20</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#fefe67942d2bc71591edefeb411c0571">MTX_DATA_ACK</a>&nbsp;&nbsp;&nbsp;0x28</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#5cd48ca47e12912efd57dafc71427185">MTX_DATA_NACK</a>&nbsp;&nbsp;&nbsp;0x30</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#00e79d07318f3272f0880da1b4ca58a1">MTX_ARB_LOST</a>&nbsp;&nbsp;&nbsp;0x38</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#62b777f50ec5c65edc1c5b33b8178522">MRX_ARB_LOST</a>&nbsp;&nbsp;&nbsp;0x38</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#63ab8d5b8b91bfd351243e0f14add065">MRX_ADR_ACK</a>&nbsp;&nbsp;&nbsp;0x40</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#bbd7409690406bd2caadacedd35418be">MRX_ADR_NACK</a>&nbsp;&nbsp;&nbsp;0x48</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#e38b12c5a00e5357c3328c20ff6ec691">MRX_DATA_ACK</a>&nbsp;&nbsp;&nbsp;0x50</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#34824c0a4bf119272faf4e31070f1f49">MRX_DATA_NACK</a>&nbsp;&nbsp;&nbsp;0x58</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#ff00c12cb1e73dd2b73979fbc979bd39">Send_to_TWI</a> (<a class="el" href="structtx__type.html">tx_type</a> *data_pack)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#1a6318d2be80a7e627cfa3221c85035c">Send_byte</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#59a5d4b8998cf7492a72a080d1de613a">Get_byte</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> *rx_ptr, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> last_byte)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#847400389de0938930e66f78625e4c72">Send_start</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#8d7b0f88459b63b343fabc99087ffc47">Send_adr</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> adr)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#c38ea71eb21a1859c60091fd065b40d0">Send_stop</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#7d0766749f2b2930cd2a5b148b6fc225">Wait_TWI_int</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#9ddbdb0ecc02e3d200af45008ce76f19">Init_TWI</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="TWI__driver_8h.html#c00a968f84b2b9bc09191b8cbf92fa25">Close_TWI</a> (void)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+TWI Treiber. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Chris efstathiou <a href="mailto:hendrix@otenet.gr">hendrix@otenet.gr</a> &amp; Carsten Giesen (<a href="mailto:info@cnau.de">info@cnau.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>11.04.2006 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="63ab8d5b8b91bfd351243e0f14add065"></a><!-- doxytag: member="TWI_driver.h::MRX_ADR_ACK" ref="63ab8d5b8b91bfd351243e0f14add065" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MRX_ADR_ACK&nbsp;&nbsp;&nbsp;0x40          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+SLA+R wurde uebertragen und ACK empfangen 
+</div>
+</div><p>
+<a class="anchor" name="bbd7409690406bd2caadacedd35418be"></a><!-- doxytag: member="TWI_driver.h::MRX_ADR_NACK" ref="bbd7409690406bd2caadacedd35418be" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MRX_ADR_NACK&nbsp;&nbsp;&nbsp;0x48          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+SLA+R wurde uebertragen und NACK empfangen 
+</div>
+</div><p>
+<a class="anchor" name="62b777f50ec5c65edc1c5b33b8178522"></a><!-- doxytag: member="TWI_driver.h::MRX_ARB_LOST" ref="62b777f50ec5c65edc1c5b33b8178522" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MRX_ARB_LOST&nbsp;&nbsp;&nbsp;0x38          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Schlichtung verloren in SLA+R oder NACK bit 
+</div>
+</div><p>
+<a class="anchor" name="e38b12c5a00e5357c3328c20ff6ec691"></a><!-- doxytag: member="TWI_driver.h::MRX_DATA_ACK" ref="e38b12c5a00e5357c3328c20ff6ec691" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MRX_DATA_ACK&nbsp;&nbsp;&nbsp;0x50          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Datenbyte wurde empfangen und ACK gesendet 
+</div>
+</div><p>
+<a class="anchor" name="34824c0a4bf119272faf4e31070f1f49"></a><!-- doxytag: member="TWI_driver.h::MRX_DATA_NACK" ref="34824c0a4bf119272faf4e31070f1f49" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MRX_DATA_NACK&nbsp;&nbsp;&nbsp;0x58          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Datenbyte wurde empfangen und NACK gesendet 
+</div>
+</div><p>
+<a class="anchor" name="5be860e6d9d8fbcd84fbbe8a709e02bf"></a><!-- doxytag: member="TWI_driver.h::MTX_ADR_ACK" ref="5be860e6d9d8fbcd84fbbe8a709e02bf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MTX_ADR_ACK&nbsp;&nbsp;&nbsp;0x18          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+SLA+W wurde uebertragen und ACK empfangen 
+</div>
+</div><p>
+<a class="anchor" name="184a1ada7015ba890834c8e6413e53a9"></a><!-- doxytag: member="TWI_driver.h::MTX_ADR_NACK" ref="184a1ada7015ba890834c8e6413e53a9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MTX_ADR_NACK&nbsp;&nbsp;&nbsp;0x20          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+SLA+W wurde uebertragen und NACK empfangen 
+</div>
+</div><p>
+<a class="anchor" name="00e79d07318f3272f0880da1b4ca58a1"></a><!-- doxytag: member="TWI_driver.h::MTX_ARB_LOST" ref="00e79d07318f3272f0880da1b4ca58a1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MTX_ARB_LOST&nbsp;&nbsp;&nbsp;0x38          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Schlichtung verloren in SLA+W oder Datenbytes Master Empfaenger Statuscode 
+</div>
+</div><p>
+<a class="anchor" name="fefe67942d2bc71591edefeb411c0571"></a><!-- doxytag: member="TWI_driver.h::MTX_DATA_ACK" ref="fefe67942d2bc71591edefeb411c0571" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MTX_DATA_ACK&nbsp;&nbsp;&nbsp;0x28          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Datenbyte wurde uebertragen und ACK empfangen 
+</div>
+</div><p>
+<a class="anchor" name="5cd48ca47e12912efd57dafc71427185"></a><!-- doxytag: member="TWI_driver.h::MTX_DATA_NACK" ref="5cd48ca47e12912efd57dafc71427185" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MTX_DATA_NACK&nbsp;&nbsp;&nbsp;0x30          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Datenbyte wurde uebertragen und NACK empfangen 
+</div>
+</div><p>
+<a class="anchor" name="637d72a77fbdbdc02cf39db3848888ba"></a><!-- doxytag: member="TWI_driver.h::OWN_ADR" ref="637d72a77fbdbdc02cf39db3848888ba" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OWN_ADR&nbsp;&nbsp;&nbsp;60          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Die eigene Slave Adresse 
+</div>
+</div><p>
+<a class="anchor" name="5c71a5e59a53413cd6c270266d63b031"></a><!-- doxytag: member="TWI_driver.h::R" ref="5c71a5e59a53413cd6c270266d63b031" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define R&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Daten Transfer Richtung Lesen 
+</div>
+</div><p>
+<a class="anchor" name="9bacece2c20a7319735a4973390fb096"></a><!-- doxytag: member="TWI_driver.h::REP_START" ref="9bacece2c20a7319735a4973390fb096" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define REP_START&nbsp;&nbsp;&nbsp;0x10          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Wiederholter START wurde uebertragen Master Sender Statuscode 
+</div>
+</div><p>
+<a class="anchor" name="3018c7600b7bb9866400596a56a57af7"></a><!-- doxytag: member="TWI_driver.h::START" ref="3018c7600b7bb9866400596a56a57af7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define START&nbsp;&nbsp;&nbsp;0x08          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+&lt; Genereller Master Statuscode START wurde uebertragen 
+</div>
+</div><p>
+<a class="anchor" name="a90cac659d18e8ef6294c7ae337f6b58"></a><!-- doxytag: member="TWI_driver.h::SUCCESS" ref="a90cac659d18e8ef6294c7ae337f6b58" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUCCESS&nbsp;&nbsp;&nbsp;0xFF          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Status Code alles OK 
+</div>
+</div><p>
+<a class="anchor" name="649b8f01fd6c0f47ff3cbddaeba63bfb"></a><!-- doxytag: member="TWI_driver.h::W" ref="649b8f01fd6c0f47ff3cbddaeba63bfb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define W&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Daten Transfer Richtung Schreiben 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="c00a968f84b2b9bc09191b8cbf92fa25"></a><!-- doxytag: member="TWI_driver.h::Close_TWI" ref="c00a968f84b2b9bc09191b8cbf92fa25" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> Close_TWI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+TWI Bus schliesen <dl compact><dt><b>Rückgabe:</b></dt><dd>Resultat der Aktion </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="59a5d4b8998cf7492a72a080d1de613a"></a><!-- doxytag: member="TWI_driver.h::Get_byte" ref="59a5d4b8998cf7492a72a080d1de613a" args="(uint8 *rx_ptr, uint8 last_byte)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> Get_byte           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> *&nbsp;</td>
+          <td class="paramname"> <em>rx_ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>last_byte</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Empfange ein Byte <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*rx_ptr</em>&nbsp;</td><td>Container fï¿½r die Daten </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>last_byte</em>&nbsp;</td><td>Flag ob noch Daten erwartet werden </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Rückgabe:</b></dt><dd>Resultat der Aktion </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="9ddbdb0ecc02e3d200af45008ce76f19"></a><!-- doxytag: member="TWI_driver.h::Init_TWI" ref="9ddbdb0ecc02e3d200af45008ce76f19" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> Init_TWI           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+TWI Bus initialsieren <dl compact><dt><b>Rückgabe:</b></dt><dd>Resultat der Aktion </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="8d7b0f88459b63b343fabc99087ffc47"></a><!-- doxytag: member="TWI_driver.h::Send_adr" ref="8d7b0f88459b63b343fabc99087ffc47" args="(uint8 adr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> Send_adr           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>adr</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sende Slave Adresse <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>adr</em>&nbsp;</td><td>die gewuenschte Adresse </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Rückgabe:</b></dt><dd>Resultat der Aktion </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="1a6318d2be80a7e627cfa3221c85035c"></a><!-- doxytag: member="TWI_driver.h::Send_byte" ref="1a6318d2be80a7e627cfa3221c85035c" args="(uint8 data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> Send_byte           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sende ein Byte <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>das zu uebertragende Byte </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="847400389de0938930e66f78625e4c72"></a><!-- doxytag: member="TWI_driver.h::Send_start" ref="847400389de0938930e66f78625e4c72" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> Send_start           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sende Start Sequence <dl compact><dt><b>Rückgabe:</b></dt><dd>Resultat der Aktion </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="c38ea71eb21a1859c60091fd065b40d0"></a><!-- doxytag: member="TWI_driver.h::Send_stop" ref="c38ea71eb21a1859c60091fd065b40d0" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Send_stop           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sende Stop Sequence 
+</div>
+</div><p>
+<a class="anchor" name="ff00c12cb1e73dd2b73979fbc979bd39"></a><!-- doxytag: member="TWI_driver.h::Send_to_TWI" ref="ff00c12cb1e73dd2b73979fbc979bd39" args="(tx_type *data_pack)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> Send_to_TWI           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtx__type.html">tx_type</a> *&nbsp;</td>
+          <td class="paramname"> <em>data_pack</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Hier wird der eigentliche TWI-Treiber angesprochen <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data_pack</em>&nbsp;</td><td>Container mit den Daten fuer den Treiber </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Rückgabe:</b></dt><dd>Resultat der Aktion </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="7d0766749f2b2930cd2a5b148b6fc225"></a><!-- doxytag: member="TWI_driver.h::Wait_TWI_int" ref="7d0766749f2b2930cd2a5b148b6fc225" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Wait_TWI_int           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Warte auf TWI interrupt 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

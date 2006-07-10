@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: motor.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>motor.c-Dateireferenz</h1>High-Level-Routinen fuer die Motorsteuerung des c't-Bot. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="global_8h-source.html">global.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="ct-Bot_8h-source.html">ct-Bot.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="motor_8h-source.html">motor.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="bot-local_8h-source.html">bot-local.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="motor-low_8h-source.html">motor-low.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="timer_8h-source.html">timer.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="sensor_8h-source.html">sensor.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="display_8h-source.html">display.h</a>&quot;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#29eaa7ea340aed6c94c8208f548c4ac8">PWMMAX</a>&nbsp;&nbsp;&nbsp;255</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#6f330c196a65bb05fd5b7fff59d6f62f">PWMMIN</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#fc65bbbce25416948ddc6b4329d1f195">motor_set</a> (<a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> left, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> right)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#b25d676d27a5faef4c098852c8762479">servo_set</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> servo, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> pos)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#a2a5af0fb9c1fa2047a5ca0af110f806">motor_init</a> (void)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#6f97c09144956cc7c0a3a03acc38a264">speed_l</a> = 0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#51f9095dfab9b503eeb75def14c755ce">speed_r</a> = 0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">direction_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_8c.html#96703dcd865ea4cfb315cab528b061d8">direction</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+High-Level-Routinen fuer die Motorsteuerung des c't-Bot. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>15.01.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="29eaa7ea340aed6c94c8208f548c4ac8"></a><!-- doxytag: member="motor.c::PWMMAX" ref="29eaa7ea340aed6c94c8208f548c4ac8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWMMAX&nbsp;&nbsp;&nbsp;255          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Maximaler PWM-Wert 
+</div>
+</div><p>
+<a class="anchor" name="6f330c196a65bb05fd5b7fff59d6f62f"></a><!-- doxytag: member="motor.c::PWMMIN" ref="6f330c196a65bb05fd5b7fff59d6f62f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWMMIN&nbsp;&nbsp;&nbsp;0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Minimaler PWM-Wert 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="a2a5af0fb9c1fa2047a5ca0af110f806"></a><!-- doxytag: member="motor.c::motor_init" ref="a2a5af0fb9c1fa2047a5ca0af110f806" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void motor_init           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisiere den Motorkrams 
+</div>
+</div><p>
+<a class="anchor" name="fc65bbbce25416948ddc6b4329d1f195"></a><!-- doxytag: member="motor.c::motor_set" ref="fc65bbbce25416948ddc6b4329d1f195" args="(int16 left, int16 right)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void motor_set           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>right</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Direkter Zugriff auf den Motor <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>left</em>&nbsp;</td><td>Geschwindigkeit fuer den linken Motor </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>right</em>&nbsp;</td><td>Geschwindigkeit fuer den linken Motor Geschwindigkeit liegt zwischen -255 und +255. 0 bedeutet Stillstand, 255 volle Kraft voraus, -255 volle Kraft zurueck. Sinnvoll ist die Verwendung der Konstanten: BOT_SPEED_XXX, also z.B. motor_set(BOT_SPEED_LOW,-BOT_SPEED_LOW); fuer eine langsame Drehung </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="b25d676d27a5faef4c098852c8762479"></a><!-- doxytag: member="motor.c::servo_set" ref="b25d676d27a5faef4c098852c8762479" args="(uint8 servo, uint8 pos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void servo_set           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>servo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>pos</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Stellt die Servos Sinnvolle Werte liegen zwischen 8 und 16 <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>servo</em>&nbsp;</td><td>Nummer des Servos </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>servo</em>&nbsp;</td><td>Zielwert </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="96703dcd865ea4cfb315cab528b061d8"></a><!-- doxytag: member="motor.c::direction" ref="96703dcd865ea4cfb315cab528b061d8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">direction_t <a class="el" href="motor_8c.html#96703dcd865ea4cfb315cab528b061d8">direction</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Drehrichtung der Motoren 
+</div>
+</div><p>
+<a class="anchor" name="6f97c09144956cc7c0a3a03acc38a264"></a><!-- doxytag: member="motor.c::speed_l" ref="6f97c09144956cc7c0a3a03acc38a264" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="motor_8c.html#6f97c09144956cc7c0a3a03acc38a264">speed_l</a> = 0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Geschwindigkeit linker Motor 
+</div>
+</div><p>
+<a class="anchor" name="51f9095dfab9b503eeb75def14c755ce"></a><!-- doxytag: member="motor.c::speed_r" ref="51f9095dfab9b503eeb75def14c755ce" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="motor_8c.html#51f9095dfab9b503eeb75def14c755ce">speed_r</a> = 0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Geschwindigkeit rechter Motor 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

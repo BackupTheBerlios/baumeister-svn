@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: motor-low.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>motor-low.h-Dateireferenz</h1>Low-Level Routinen fuer die Motorsteuerung des c't-Bots. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="global_8h-source.html">global.h</a>&quot;</code><br>
+
+<p>
+<a href="motor-low_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#3d0ffe66e4e37785419f435378b0f223">SERVO_LEFT</a>&nbsp;&nbsp;&nbsp;8</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#e2a7cd990460512f2695d999a0cbd45d">SERVO_RIGHT</a>&nbsp;&nbsp;&nbsp;16</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#3f98902916fb7f810367c87e7473af9a">SERVO_MIDDLE</a>&nbsp;&nbsp;&nbsp;((SERVO_RIGHT- SERVO_LEFT)/2+SERVO_LEFT)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#8f2a5c30e29a7191cff398b144850d51">SERVO1</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#6ef869fd74197c01f27e848f9446520c">SERVO2</a>&nbsp;&nbsp;&nbsp;2</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#a757a45f2c6ae11e9fab13010d9ac432">motor_low_init</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#6dd1a5da16ddde6866c91a2996043a30">bot_motor</a> (<a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> left, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> right)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor-low_8h.html#3fcdcb4d26ee4b8b8a7d4f589f4af45b">bot_servo</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> servo, <a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> pos)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Low-Level Routinen fuer die Motorsteuerung des c't-Bots. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>01.12.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="8f2a5c30e29a7191cff398b144850d51"></a><!-- doxytag: member="motor-low.h::SERVO1" ref="8f2a5c30e29a7191cff398b144850d51" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVO1&nbsp;&nbsp;&nbsp;1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Servo1 
+</div>
+</div><p>
+<a class="anchor" name="6ef869fd74197c01f27e848f9446520c"></a><!-- doxytag: member="motor-low.h::SERVO2" ref="6ef869fd74197c01f27e848f9446520c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVO2&nbsp;&nbsp;&nbsp;2          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Servo1 
+</div>
+</div><p>
+<a class="anchor" name="3d0ffe66e4e37785419f435378b0f223"></a><!-- doxytag: member="motor-low.h::SERVO_LEFT" ref="3d0ffe66e4e37785419f435378b0f223" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVO_LEFT&nbsp;&nbsp;&nbsp;8          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Linker Anschlag des Servos 
+</div>
+</div><p>
+<a class="anchor" name="3f98902916fb7f810367c87e7473af9a"></a><!-- doxytag: member="motor-low.h::SERVO_MIDDLE" ref="3f98902916fb7f810367c87e7473af9a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVO_MIDDLE&nbsp;&nbsp;&nbsp;((SERVO_RIGHT- SERVO_LEFT)/2+SERVO_LEFT)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Mittelstellung des Servos 
+</div>
+</div><p>
+<a class="anchor" name="e2a7cd990460512f2695d999a0cbd45d"></a><!-- doxytag: member="motor-low.h::SERVO_RIGHT" ref="e2a7cd990460512f2695d999a0cbd45d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVO_RIGHT&nbsp;&nbsp;&nbsp;16          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Linker Anschlag des Servos 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="6dd1a5da16ddde6866c91a2996043a30"></a><!-- doxytag: member="motor-low.h::bot_motor" ref="6dd1a5da16ddde6866c91a2996043a30" args="(int16 left, int16 right)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_motor           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>right</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Unmittelbarer Zugriff auf die beiden Motoren normalerweise NICHT verwenden!!!!! <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>left</em>&nbsp;</td><td>speed links </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>right</em>&nbsp;</td><td>speed rechts </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="3fcdcb4d26ee4b8b8a7d4f589f4af45b"></a><!-- doxytag: member="motor-low.h::bot_servo" ref="3fcdcb4d26ee4b8b8a7d4f589f4af45b" args="(uint8 servo, uint8 pos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_servo           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>servo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>pos</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Stellt die Servos. Sinnvolle Werte liegen zwischen 8 und 16 <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>servo</em>&nbsp;</td><td>Nummer des Servos </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>servo</em>&nbsp;</td><td>Zielwert </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a757a45f2c6ae11e9fab13010d9ac432"></a><!-- doxytag: member="motor-low.h::motor_low_init" ref="a757a45f2c6ae11e9fab13010d9ac432" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void motor_low_init           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisiert alles fuer die Motosteuerung 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: bot-logik.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>bot-logik.h</h1><a href="bot-logik_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * c't-Sim - Robotersimulator fuer den c't-Bot</span>
+<a name="l00003"></a>00003 <span class="comment"> * </span>
+<a name="l00004"></a>00004 <span class="comment"> * This program is free software; you can redistribute it</span>
+<a name="l00005"></a>00005 <span class="comment"> * and/or modify it under the terms of the GNU General</span>
+<a name="l00006"></a>00006 <span class="comment"> * Public License as published by the Free Software</span>
+<a name="l00007"></a>00007 <span class="comment"> * Foundation; either version 2 of the License, or (at your</span>
+<a name="l00008"></a>00008 <span class="comment"> * option) any later version. </span>
+<a name="l00009"></a>00009 <span class="comment"> * This program is distributed in the hope that it will be </span>
+<a name="l00010"></a>00010 <span class="comment"> * useful, but WITHOUT ANY WARRANTY; without even the implied</span>
+<a name="l00011"></a>00011 <span class="comment"> * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR </span>
+<a name="l00012"></a>00012 <span class="comment"> * PURPOSE. See the GNU General Public License for more details.</span>
+<a name="l00013"></a>00013 <span class="comment"> * You should have received a copy of the GNU General Public </span>
+<a name="l00014"></a>00014 <span class="comment"> * License along with this program; if not, write to the Free </span>
+<a name="l00015"></a>00015 <span class="comment"> * Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,</span>
+<a name="l00016"></a>00016 <span class="comment"> * MA 02111-1307, USA.</span>
+<a name="l00017"></a>00017 <span class="comment"> * </span>
+<a name="l00018"></a>00018 <span class="comment"> */</span>
+<a name="l00019"></a>00019 
+<a name="l00026"></a>00026 <span class="preprocessor">#ifndef bot_logik_H_</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define bot_logik_H_</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include "<a class="code" href="global_8h.html">global.h</a>"</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include "<a class="code" href="ct-Bot_8h.html">ct-Bot.h</a>"</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00034"></a><a class="code" href="struct__Behaviour__t.html">00034</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct__Behaviour__t.html">_Behaviour_t</a> {
+<a name="l00035"></a>00035    void (*<a class="code" href="struct__Behaviour__t.html#df318e198857ed38c4404dfafed9b5fa">work</a>) (<span class="keyword">struct </span><a class="code" href="struct__Behaviour__t.html">_Behaviour_t</a> *data);    
+<a name="l00037"></a><a class="code" href="struct__Behaviour__t.html#5244b5ec9f46146396a12b12e75c7c97">00037</a>    <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="struct__Behaviour__t.html#5244b5ec9f46146396a12b12e75c7c97">priority</a>;                              
+<a name="l00038"></a>00038    <span class="keyword">struct </span><a class="code" href="struct__Behaviour__t.html">_Behaviour_t</a> *caller ; <span class="comment">/* aufrufendes verhalten */</span>
+<a name="l00039"></a>00039    
+<a name="l00040"></a><a class="code" href="struct__Behaviour__t.html#658c90f5d5f6c9a6a190f894728b7ba3">00040</a>    <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="struct__Behaviour__t.html#658c90f5d5f6c9a6a190f894728b7ba3">active</a>:1;                              
+<a name="l00041"></a>00041 <span class="preprocessor">   #ifdef DISPLAY_BEHAVIOUR_AVAILABLE  </span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>   <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> active_new:1;                  
+<a name="l00043"></a>00043 <span class="preprocessor">   #endif</span>
+<a name="l00044"></a><a class="code" href="struct__Behaviour__t.html#a1586e7d4ec49c01a6a18c009339b441">00044</a> <span class="preprocessor"></span>   <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="struct__Behaviour__t.html#a1586e7d4ec49c01a6a18c009339b441">subResult</a>:2;                   
+<a name="l00045"></a><a class="code" href="struct__Behaviour__t.html#7d06850b488666450e215598e6b0b1fe">00045</a>    <span class="keyword">struct </span><a class="code" href="struct__Behaviour__t.html">_Behaviour_t</a> *<a class="code" href="struct__Behaviour__t.html#7d06850b488666450e215598e6b0b1fe">next</a>;                                   
+<a name="l00046"></a>00046 <span class="preprocessor">#ifndef DOXYGEN</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>        }<a class="code" href="struct____attribute____.html">__attribute__</a> ((packed)) <a class="code" href="struct__Behaviour__t.html">Behaviour_t</a>;
+<a name="l00048"></a>00048 <span class="preprocessor">#else</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span>        } <a class="code" href="struct__Behaviour__t.html">Behaviour_t</a>;
+<a name="l00050"></a>00050 <span class="preprocessor">#endif</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span>
+<a name="l00053"></a><a class="code" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">00053</a> <span class="keyword">typedef</span> void (*<a class="code" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a>)(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *data);
+<a name="l00054"></a>00054 
+<a name="l00056"></a>00056 <span class="keyword">extern</span> <a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *<a class="code" href="bot-logik_8c.html#881f2834dd4f0d85a014d5e1c89113c8">behaviour</a>;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="code" href="bot-logik_8c.html#e4ae6dc5ec210e7cfd5166121bda87c3">target_speed_l</a>;   
+<a name="l00060"></a>00060 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="code" href="bot-logik_8c.html#76e12968209f543004114359695e8377">target_speed_r</a>;   
+<a name="l00066"></a>00066 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#a4df8978f0f499c194137f6b2bbbfa2c">bot_behave</a>(<span class="keywordtype">void</span>);
+<a name="l00067"></a>00067 
+<a name="l00071"></a>00071 <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init</a>(<span class="keywordtype">void</span>);
+<a name="l00072"></a>00072 
+<a name="l00077"></a>00077 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#5364dd616a391055e97f5053a5636d8f">activateBehaviour</a>(<a class="code" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a> function);
+<a name="l00078"></a>00078 
+<a name="l00083"></a>00083 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#05900625e5453c7b3aa49bff90708f95">deactivateBehaviour</a>(<a class="code" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a> function);
+<a name="l00084"></a>00084 
+<a name="l00089"></a>00089 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#1ed6103edf637f32e8c087d3de94a74e">deactivateAllBehaviours</a>(<span class="keywordtype">void</span>);
+<a name="l00090"></a>00090 
+<a name="l00098"></a>00098 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#07c919e69cc3a70be55b7efc49fdc435">bot_drive_square_behaviour</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *data);
+<a name="l00099"></a>00099 
+<a name="l00105"></a>00105 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#fdc8d5e8a5657be5a05bf9cba53ea318">bot_goto_behaviour</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *data);
+<a name="l00106"></a>00106 
+<a name="l00112"></a>00112 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#cf0dc306dfb8012aff1af96a12afac9b">bot_goto</a>(<a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> left, <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> right, <a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> * caller);
+<a name="l00113"></a>00113 
+<a name="l00121"></a>00121 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#d78e5ec3affa455a2a98e9aafeb67c96">bot_drive_distance</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a>* caller,<a class="code" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> curve, <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> speed, <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> cm);
+<a name="l00122"></a>00122 
+<a name="l00126"></a>00126 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#66ffb50cce578bc999db49a112e4536a">bot_gotoxy</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *caller, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);
+<a name="l00127"></a>00127 
+<a name="l00132"></a>00132 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#c7850c6f0467e31ea713c1aee9aeec1f">bot_turn</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a>* caller,<a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> degrees);
+<a name="l00133"></a>00133 
+<a name="l00137"></a>00137 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#235e23fa84b5b35022becc3343573954">bot_olympic_behaviour</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *data);
+<a name="l00138"></a>00138 
+<a name="l00144"></a>00144 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#e8ac26948cf65b72d78549e85390d861">bot_drive_distance_behaviour</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a>* data);
+<a name="l00145"></a>00145 
+<a name="l00150"></a>00150 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#a49007295687228b4083f8f84208def4">bot_turn_behaviour</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a>* data);
+<a name="l00151"></a>00151 
+<a name="l00173"></a>00173 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#2c062ffa3773a8a4bdd919307136550a">bot_explore_behaviour</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *data);
+<a name="l00174"></a>00174 
+<a name="l00179"></a>00179 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#9a0be2533f0d86e712f88ae2ce84051b">bot_do_slalom_behaviour</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *data);
+<a name="l00180"></a>00180 
+<a name="l00187"></a>00187 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#4df4c969b0f99a253af4f1cc83053f59">bot_solve_maze</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *data);
+<a name="l00188"></a>00188 
+<a name="l00193"></a>00193 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#c90b72d04921aa70bbc2462ecdcb67da">bot_scan</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a>* caller);
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195 <span class="keywordtype">void</span> <a class="code" href="bot-logik_8c.html#697f0c554ed200340351641b5dbb091d">bot_follow_line</a>(<a class="code" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a> *caller);
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 <span class="preprocessor">#ifdef DISPLAY_BEHAVIOUR_AVAILABLE</span>
+<a name="l00198"></a>00198 <span class="preprocessor"></span>  
+<a name="l00202"></a>00202   <span class="keyword">extern</span> <a class="code" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>  another_behaviour_page(<span class="keywordtype">void</span>) ;
+<a name="l00203"></a>00203   
+<a name="l00208"></a>00208   <span class="keywordtype">void</span> toggleNewBehaviourPos(<a class="code" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> pos);
+<a name="l00209"></a>00209   
+<a name="l00214"></a>00214   <span class="keywordtype">void</span> set_behaviours_active_to_new(<span class="keywordtype">void</span>);
+<a name="l00215"></a>00215   
+<a name="l00220"></a>00220   <span class="keywordtype">void</span> set_behaviours_equal(<span class="keywordtype">void</span>);
+<a name="l00221"></a>00221    
+<a name="l00222"></a>00222   <span class="keyword">volatile</span> <a class="code" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> behaviour_page ; 
+<a name="l00223"></a>00223 <span class="preprocessor">#endif</span>
+<a name="l00224"></a>00224 <span class="preprocessor"></span>
+<a name="l00225"></a>00225 <span class="preprocessor">#endif</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:12 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

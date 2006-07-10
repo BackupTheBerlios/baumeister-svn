@@ -1,0 +1,673 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: bot-logik.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>bot-logik.h-Dateireferenz</h1>High-Level-Routinen fuer die Steuerung des c't-Bots. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="global_8h-source.html">global.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="ct-Bot_8h-source.html">ct-Bot.h</a>&quot;</code><br>
+
+<p>
+<a href="bot-logik_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Datenstrukturen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__Behaviour__t.html">_Behaviour_t</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Typdefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef <a class="el" href="struct__Behaviour__t.html">_Behaviour_t</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#d7cade9cf6693205cf1e7a5e07b9e0dc">Behaviour_t</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef void(*)&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#a4df8978f0f499c194137f6b2bbbfa2c">bot_behave</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#8aa692028862cf5bf4387705feb9cc1b">bot_behave_init</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#5364dd616a391055e97f5053a5636d8f">activateBehaviour</a> (<a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a> function)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#05900625e5453c7b3aa49bff90708f95">deactivateBehaviour</a> (<a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a> function)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#1ed6103edf637f32e8c087d3de94a74e">deactivateAllBehaviours</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#07c919e69cc3a70be55b7efc49fdc435">bot_drive_square_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#fdc8d5e8a5657be5a05bf9cba53ea318">bot_goto_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#cf0dc306dfb8012aff1af96a12afac9b">bot_goto</a> (<a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> left, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> right, <a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#d78e5ec3affa455a2a98e9aafeb67c96">bot_drive_distance</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, <a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> curve, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> speed, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> cm)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#66ffb50cce578bc999db49a112e4536a">bot_gotoxy</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, float x, float y)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#c7850c6f0467e31ea713c1aee9aeec1f">bot_turn</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller, <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> degrees)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#235e23fa84b5b35022becc3343573954">bot_olympic_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#e8ac26948cf65b72d78549e85390d861">bot_drive_distance_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#a49007295687228b4083f8f84208def4">bot_turn_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#2c062ffa3773a8a4bdd919307136550a">bot_explore_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#9a0be2533f0d86e712f88ae2ce84051b">bot_do_slalom_behaviour</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#275b81c194129d40e029b5fdb03542d6">bot_solve_maze</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#c90b72d04921aa70bbc2462ecdcb67da">bot_scan</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#697f0c554ed200340351641b5dbb091d">bot_follow_line</a> (<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *caller)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#881f2834dd4f0d85a014d5e1c89113c8">behaviour</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#e4ae6dc5ec210e7cfd5166121bda87c3">target_speed_l</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="bot-logik_8h.html#76e12968209f543004114359695e8377">target_speed_r</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+High-Level-Routinen fuer die Steuerung des c't-Bots. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>01.12.05 </dd></dl>
+<hr><h2>Dokumentation der benutzerdefinierten Typen</h2>
+<a class="anchor" name="d7cade9cf6693205cf1e7a5e07b9e0dc"></a><!-- doxytag: member="bot-logik.h::Behaviour_t" ref="d7cade9cf6693205cf1e7a5e07b9e0dc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct__Behaviour__t.html">_Behaviour_t</a>  <a class="el" href="struct__Behaviour__t.html">Behaviour_t</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Verwaltungsstruktur fuer die Verhaltensroutinen 
+</div>
+</div><p>
+<a class="anchor" name="b6632775110b65b43f015addb461c6c7"></a><!-- doxytag: member="bot-logik.h::BehaviourFunc" ref="b6632775110b65b43f015addb461c6c7" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*) <a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a>(<a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *data)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Dieser Typ definiert eine Funktion die das eigentliche Verhalten ausfuehrt. 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="5364dd616a391055e97f5053a5636d8f"></a><!-- doxytag: member="bot-logik.h::activateBehaviour" ref="5364dd616a391055e97f5053a5636d8f" args="(BehaviourFunc function)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void activateBehaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a>&nbsp;</td>
+          <td class="paramname"> <em>function</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Aktiviert eine Regel mit gegebener Funktion <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>function</em>&nbsp;</td><td>Die Funktion, die das Verhalten realisiert. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a4df8978f0f499c194137f6b2bbbfa2c"></a><!-- doxytag: member="bot-logik.h::bot_behave" ref="a4df8978f0f499c194137f6b2bbbfa2c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_behave           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zentrale Verhaltens-Routine, wird regelmaessig aufgerufen. Dies ist der richtige Platz fuer eigene Routinen, um den Bot zu steuern. 
+</div>
+</div><p>
+<a class="anchor" name="8aa692028862cf5bf4387705feb9cc1b"></a><!-- doxytag: member="bot-logik.h::bot_behave_init" ref="8aa692028862cf5bf4387705feb9cc1b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_behave_init           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisert das ganze Verhalten 
+</div>
+</div><p>
+<a class="anchor" name="9a0be2533f0d86e712f88ae2ce84051b"></a><!-- doxytag: member="bot-logik.h::bot_do_slalom_behaviour" ref="9a0be2533f0d86e712f88ae2ce84051b" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_do_slalom_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot einen Slalom fahren. <dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#7ecdb9986257583f840e1ebfe289664f">bot_do_slalom()</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="d78e5ec3affa455a2a98e9aafeb67c96"></a><!-- doxytag: member="bot-logik.h::bot_drive_distance" ref="d78e5ec3affa455a2a98e9aafeb67c96" args="(Behaviour_t *caller, int8 curve, int16 speed, int16 cm)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_drive_distance           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td>
+          <td class="paramname"> <em>curve</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>speed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>cm</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot eine vorher festgelegte Strecke fahren. Dabei legt die Geschwindigkeit fest, ob der Bot vorwaerts oder rueckwaerts fahren soll. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>curve</em>&nbsp;</td><td>Gibt an, ob der Bot eine Kurve fahren soll. Werte von -127 (So scharf wie moeglich links) ueber 0 (gerade aus) bis 127 (so scharf wie moeglich rechts) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>speed</em>&nbsp;</td><td>Gibt an, wie schnell der Bot fahren soll. Negative Werte lassen den Bot rueckwaerts fahren. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>cm</em>&nbsp;</td><td>Gibt an, wie weit der Bot fahren soll. In cm :-) Die Strecke muss positiv sein, die Fahrtrichtung wird ueber speed geregelt. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e8ac26948cf65b72d78549e85390d861"></a><!-- doxytag: member="bot-logik.h::bot_drive_distance_behaviour" ref="e8ac26948cf65b72d78549e85390d861" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_drive_distance_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot eine vorher festgelegte Strecke fahren. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#d78e5ec3affa455a2a98e9aafeb67c96">bot_drive_distance()</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="07c919e69cc3a70be55b7efc49fdc435"></a><!-- doxytag: member="bot-logik.h::bot_drive_square_behaviour" ref="07c919e69cc3a70be55b7efc49fdc435" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_drive_square_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Laesst den Roboter ein Quadrat abfahren. Einfaches Beispiel fuer ein Verhalten, das einen Zustand besitzt. Es greift auf andere Behaviours zurueck und setzt daher selbst keine speedWishes. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="2c062ffa3773a8a4bdd919307136550a"></a><!-- doxytag: member="bot-logik.h::bot_explore_behaviour" ref="2c062ffa3773a8a4bdd919307136550a" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_explore_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Roboter den Raum durchsuchen. Das Verhalten hat mehrere unterschiedlich Zustaende: 1. Zu einer Wand oder einem anderen Hindernis fahren. 2. Zu einer Seite drehen, bis der Bot parallel zur Wand ist. Es macht vielleicht Sinn, den Maussensor auszulesen, um eine Drehung um einen bestimmten Winkel zu realisieren. Allerdings muesste dafuer auch der Winkel des Bots zur Wand bekannt sein. 3. Eine feste Strecke parallel zur Wand vorwaerts fahren. Da bot_glance_behaviour abwechselnd zu beiden Seiten schaut, ist es fuer die Aufgabe, einer Wand auf einer Seite des Bots zu folgen, nur bedingt gewachsen und muss evtl. erweitert werden. 4. Senkrecht zur Wand drehen. Siehe 2. 5. Einen Bogen fahren, bis der Bot wieder auf ein Hindernis stoesst. Dann das Ganze von vorne beginnen, nur in die andere Richtung und mit einem weiteren Bogen. So erforscht der Bot einigermassen systematisch den Raum.<p>
+Da das Verhalten jeweils nach 10ms neu aufgerufen wird, muss der Bot sich 'merken', in welchem Zustand er sich gerade befindet. 
+</div>
+</div><p>
+<a class="anchor" name="697f0c554ed200340351641b5dbb091d"></a><!-- doxytag: member="bot-logik.h::bot_follow_line" ref="697f0c554ed200340351641b5dbb091d" args="(Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_follow_line           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Folgt einer Linie, sobald beide Liniensensoren ausloesen Die Linie sollte in etwa die Breite beider CNY70 haben 
+</div>
+</div><p>
+<a class="anchor" name="cf0dc306dfb8012aff1af96a12afac9b"></a><!-- doxytag: member="bot-logik.h::bot_goto" ref="cf0dc306dfb8012aff1af96a12afac9b" args="(int16 left, int16 right, Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_goto           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Drehe die Raeder um die gegebene Zahl an Encoder-Schritten weiter <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>left</em>&nbsp;</td><td>Schritte links </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>right</em>&nbsp;</td><td>Schritte rechts </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="fdc8d5e8a5657be5a05bf9cba53ea318"></a><!-- doxytag: member="bot-logik.h::bot_goto_behaviour" ref="fdc8d5e8a5657be5a05bf9cba53ea318" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_goto_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Kuemmert sich intern um die Ausfuehrung der goto-Kommandos, <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#cf0dc306dfb8012aff1af96a12afac9b">bot_goto()</a> </dd></dl>
+
+<p>
+&lt; Muss der linke Motor noch drehen?<p>
+&lt; Muss der rechte Motor noch drehen? 
+</div>
+</div><p>
+<a class="anchor" name="66ffb50cce578bc999db49a112e4536a"></a><!-- doxytag: member="bot-logik.h::bot_gotoxy" ref="66ffb50cce578bc999db49a112e4536a" args="(Behaviour_t *caller, float x, float y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_gotoxy           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten faehrt von der aktuellen Position zur angegebenen Position (x/y) 
+</div>
+</div><p>
+<a class="anchor" name="235e23fa84b5b35022becc3343573954"></a><!-- doxytag: member="bot-logik.h::bot_olympic_behaviour" ref="235e23fa84b5b35022becc3343573954" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_olympic_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten setzt sich aus 3 Teilverhalten zusammen: Nach Licht suchen, auf das Licht zufahren, im Licht Slalom fahren. 
+</div>
+</div><p>
+<a class="anchor" name="c90b72d04921aa70bbc2462ecdcb67da"></a><!-- doxytag: member="bot-logik.h::bot_scan" ref="c90b72d04921aa70bbc2462ecdcb67da" args="(Behaviour_t *caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_scan           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Der Roboter faehrt einen Vollkreis und scannt dabei die Umgebung <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>Der</em>&nbsp;</td><td>aufrufer </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="275b81c194129d40e029b5fdb03542d6"></a><!-- doxytag: member="bot-logik.h::bot_solve_maze" ref="275b81c194129d40e029b5fdb03542d6" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_solve_maze           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten findet seinen Weg durch ein Labyrinth, das nach gewissen Grundregeln gebaut ist in nicht immer optimaler Weise aber in jedem Fall. Es arbeitet nach dem Hoehlenforscher-Algorithmus. Einschraenkung: Objekte im Labyrinth, die Endlossschleifen verursachen koennen, z.b. ein einzeln stehender Pfeiler im Labyrinth um den der Bot dann immer wieder herum fahren wuerde. 
+</div>
+</div><p>
+<a class="anchor" name="c7850c6f0467e31ea713c1aee9aeec1f"></a><!-- doxytag: member="bot-logik.h::bot_turn" ref="c7850c6f0467e31ea713c1aee9aeec1f" args="(Behaviour_t *caller, int16 degrees)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_turn           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>caller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>&nbsp;</td>
+          <td class="paramname"> <em>degrees</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Dreht den Bot im mathematisch positiven Sinn. <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>degrees</em>&nbsp;</td><td>Grad, um die der Bot gedreht wird. Negative Zahlen drehen im (mathematisch negativen) Uhrzeigersinn. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a49007295687228b4083f8f84208def4"></a><!-- doxytag: member="bot-logik.h::bot_turn_behaviour" ref="a49007295687228b4083f8f84208def4" args="(Behaviour_t *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bot_turn_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Das Verhalten laesst den Bot eine Punktdrehung durchfuehren. Drehen findet in vier Schritten statt. Die Drehung wird dabei bei Winkeln &gt; 45 Grad zunaechst mit maximaler Geschwindigkeit ausgefuehrt. Bei kleineren Winkeln oder wenn nur noch 45 Grad zu drehen sind, nur noch mit normaler Geschwindigkeit <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*data</em>&nbsp;</td><td>der Verhaltensdatensatz </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Siehe auch:</b></dt><dd><a class="el" href="bot-logik_8c.html#c7850c6f0467e31ea713c1aee9aeec1f">bot_turn()</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="1ed6103edf637f32e8c087d3de94a74e"></a><!-- doxytag: member="bot-logik.h::deactivateAllBehaviours" ref="1ed6103edf637f32e8c087d3de94a74e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deactivateAllBehaviours           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Deaktiviert alle Verhalten bis auf Grundverhalten. Bei Verhaltensauswahl werden die Aktivitaeten vorher in die Verhaltens-Auswahlvariable gesichert. 
+</div>
+</div><p>
+<a class="anchor" name="05900625e5453c7b3aa49bff90708f95"></a><!-- doxytag: member="bot-logik.h::deactivateBehaviour" ref="05900625e5453c7b3aa49bff90708f95" args="(BehaviourFunc function)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deactivateBehaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="bot-logik_8h.html#b6632775110b65b43f015addb461c6c7">BehaviourFunc</a>&nbsp;</td>
+          <td class="paramname"> <em>function</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Deaktiviert eine Regel mit gegebener Funktion <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>function</em>&nbsp;</td><td>Die Funktion, die das Verhalten realisiert. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="881f2834dd4f0d85a014d5e1c89113c8"></a><!-- doxytag: member="bot-logik.h::behaviour" ref="881f2834dd4f0d85a014d5e1c89113c8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__Behaviour__t.html">Behaviour_t</a>* <a class="el" href="bot-logik_8h.html#881f2834dd4f0d85a014d5e1c89113c8">behaviour</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liste mit allen Verhalten 
+</div>
+</div><p>
+<a class="anchor" name="e4ae6dc5ec210e7cfd5166121bda87c3"></a><!-- doxytag: member="bot-logik.h::target_speed_l" ref="e4ae6dc5ec210e7cfd5166121bda87c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8h.html#e4ae6dc5ec210e7cfd5166121bda87c3">target_speed_l</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sollgeschwindigkeit linker Motor - darum kuemmert sich bot_base() 
+</div>
+</div><p>
+<a class="anchor" name="76e12968209f543004114359695e8377"></a><!-- doxytag: member="bot-logik.h::target_speed_r" ref="76e12968209f543004114359695e8377" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> <a class="el" href="bot-logik_8h.html#76e12968209f543004114359695e8377">target_speed_r</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sollgeschwindigkeit rechter Motor - darum kuemmert sich bot_base() 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:12 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: rc5.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>rc5.c-Dateireferenz</h1>RC5-Fernbedienung Um RC5-Codes fuer eine eigene Fernbedienung anzupassen, reicht es diese in eine Header-Datei auszulagern und anstatt der rc5code.h einzubinden. Die Maskierung fuer die Auswertung der Codes nicht vergessen! <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="ct-Bot_8h-source.html">ct-Bot.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="ir-rc5_8h-source.html">ir-rc5.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="motor_8h-source.html">motor.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="motor-low_8h-source.html">motor-low.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="bot-logik_8h-source.html">bot-logik.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="display_8h-source.html">display.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="rc5-codes_8h-source.html">rc5-codes.h</a>&quot;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Datenstrukturen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRemCtrlAction.html">RemCtrlAction</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Typdefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef void(*)&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc5_8c.html#7c630f858e224af2bd7ba6a93b0752e5">RemCtrlFunc</a> (<a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *par)</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc5_8c.html#43bde1d2a2650d585d862d8a28fd1b7b">rc5_bot_next_behaviour</a> (<a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *par)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc5_8c.html#b431ecc1c3e73bb766bf9b235ff43053">rc5_number</a> (<a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *par)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc5_8c.html#3d32d095e143355fbaa103c0d629765e">rc5_bot_servo</a> (<a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *par)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc5_8c.html#054e9de2daf2d755b8999a6b1da26170">rc5_control</a> (void)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc5_8c.html#29814688017c72cb6fb6b457d51c9ec0">RC5_Code</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+RC5-Fernbedienung Um RC5-Codes fuer eine eigene Fernbedienung anzupassen, reicht es diese in eine Header-Datei auszulagern und anstatt der rc5code.h einzubinden. Die Maskierung fuer die Auswertung der Codes nicht vergessen! 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>20.12.05 </dd></dl>
+<hr><h2>Dokumentation der benutzerdefinierten Typen</h2>
+<a class="anchor" name="7c630f858e224af2bd7ba6a93b0752e5"></a><!-- doxytag: member="rc5.c::RemCtrlFunc" ref="7c630f858e224af2bd7ba6a93b0752e5" args="(RemCtrlFuncPar *par)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(*) <a class="el" href="rc5_8c.html#7c630f858e224af2bd7ba6a93b0752e5">RemCtrlFunc</a>(<a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *par)          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Dieser Typ definiert die RC5-Kommando-Code Funktion. 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="43bde1d2a2650d585d862d8a28fd1b7b"></a><!-- doxytag: member="rc5.c::rc5_bot_next_behaviour" ref="43bde1d2a2650d585d862d8a28fd1b7b" args="(RemCtrlFuncPar *par)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc5_bot_next_behaviour           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *&nbsp;</td>
+          <td class="paramname"> <em>par</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Funktion wechselt zwiaschen verschiednen Verhalten <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>par</em>&nbsp;</td><td>Parameter mit den zu setzenden Geschwindigkeiten. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="3d32d095e143355fbaa103c0d629765e"></a><!-- doxytag: member="rc5.c::rc5_bot_servo" ref="3d32d095e143355fbaa103c0d629765e" args="(RemCtrlFuncPar *par)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc5_bot_servo           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *&nbsp;</td>
+          <td class="paramname"> <em>par</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Steuert den Servo an <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>par</em>&nbsp;</td><td>Parameter mit Servo-Nummer und -Position </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="054e9de2daf2d755b8999a6b1da26170"></a><!-- doxytag: member="rc5.c::rc5_control" ref="054e9de2daf2d755b8999a6b1da26170" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc5_control           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liest ein RC5-Codeword und wertet es aus 
+<p>
+&lt; Toggle-Wert des zuletzt empfangenen RC5-Codes 
+</div>
+</div><p>
+<a class="anchor" name="b431ecc1c3e73bb766bf9b235ff43053"></a><!-- doxytag: member="rc5.c::rc5_number" ref="b431ecc1c3e73bb766bf9b235ff43053" args="(RemCtrlFuncPar *par)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rc5_number           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRemCtrlFuncPar.html">RemCtrlFuncPar</a> *&nbsp;</td>
+          <td class="paramname"> <em>par</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Verarbeitet die Zifferntasten in Abhaengigkeit vom eingestelltem Screen <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>par</em>&nbsp;</td><td>Parameter mit der betaetigten Zahlentaste. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="29814688017c72cb6fb6b457d51c9ec0"></a><!-- doxytag: member="rc5.c::RC5_Code" ref="29814688017c72cb6fb6b457d51c9ec0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 <a class="el" href="rc5_8c.html#29814688017c72cb6fb6b457d51c9ec0">RC5_Code</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Letzter empfangener RC5-Code 
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

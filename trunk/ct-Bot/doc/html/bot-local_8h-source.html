@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: bot-local.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>bot-local.h</h1><a href="bot-local_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001  <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * c't-Sim - Robotersimulator fuer den c't-Bot</span>
+<a name="l00003"></a>00003 <span class="comment"> * </span>
+<a name="l00004"></a>00004 <span class="comment"> * This program is free software; you can redistribute it</span>
+<a name="l00005"></a>00005 <span class="comment"> * and/or modify it under the terms of the GNU General</span>
+<a name="l00006"></a>00006 <span class="comment"> * Public License as published by the Free Software</span>
+<a name="l00007"></a>00007 <span class="comment"> * Foundation; either version 2 of the License, or (at your</span>
+<a name="l00008"></a>00008 <span class="comment"> * option) any later version. </span>
+<a name="l00009"></a>00009 <span class="comment"> * This program is distributed in the hope that it will be </span>
+<a name="l00010"></a>00010 <span class="comment"> * useful, but WITHOUT ANY WARRANTY; without even the implied</span>
+<a name="l00011"></a>00011 <span class="comment"> * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR </span>
+<a name="l00012"></a>00012 <span class="comment"> * PURPOSE. See the GNU General Public License for more details.</span>
+<a name="l00013"></a>00013 <span class="comment"> * You should have received a copy of the GNU General Public </span>
+<a name="l00014"></a>00014 <span class="comment"> * License along with this program; if not, write to the Free </span>
+<a name="l00015"></a>00015 <span class="comment"> * Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,</span>
+<a name="l00016"></a>00016 <span class="comment"> * MA 02111-1307, USA.</span>
+<a name="l00017"></a>00017 <span class="comment"> * </span>
+<a name="l00018"></a>00018 <span class="comment"> */</span>
+<a name="l00019"></a>00019 
+<a name="l00027"></a>00027 <span class="preprocessor">#ifndef BOTLOCAL_H_</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#define BOTLOCAL_H_</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include "<a class="code" href="ct-Bot_8h.html">ct-Bot.h</a>"</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a><a class="code" href="bot-local_8h.html#76090e9010df564c4d795146003eaa95">00032</a> <span class="preprocessor">#define ENCODER_MARKS           60              </span>
+<a name="l00033"></a><a class="code" href="bot-local_8h.html#5419e057d3cc43cca2f87bff5b09cb47">00033</a> <span class="preprocessor">#define WHEEL_DIAMETER          57              </span>
+<a name="l00034"></a><a class="code" href="bot-local_8h.html#bbc11c7f7bd3e0aaf56510a69edf9347">00034</a> <span class="preprocessor">#define WHEEL_PERIMETER         179     </span>
+<a name="l00035"></a><a class="code" href="bot-local_8h.html#bcfe4118c97f0329b4b341e5efb5f720">00035</a> <span class="preprocessor">#define WHEEL_TO_WHEEL_DIAMETER 97 </span>
+<a name="l00037"></a>00037 <span class="preprocessor">#define SPEED_CONTROL_INTERVAL          333             </span>
+<a name="l00039"></a>00039 <span class="preprocessor">//#define SPEED_TO_ENCODER_RATE         (WHEEL_PERIMETER /ENCODER_MARKS*(1000/SPEED_CONTROL_INTERVAL)) </span>
+<a name="l00040"></a><a class="code" href="bot-local_8h.html#23f018cd1162fc83358d1a2fac3bce5c">00040</a> <span class="preprocessor">#define SPEED_TO_ENCODER_RATE           9 </span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span><span class="comment">/* Odometrie-Konstanten */</span>
+<a name="l00043"></a>00043 <span class="comment">//#define MOUSE_CPI                     401             /*!&lt; CPI-Wert aus Kalibrierung */</span>
+<a name="l00044"></a>00044 <span class="comment">//#define MOUSE_FULL_TURN       1430    /*!&lt; Mausaenderung in X-Richtung fuer einen vollen Kreis */</span>
+<a name="l00045"></a><a class="code" href="bot-local_8h.html#87c5836d7eae6625b1d580f6d021bbf8">00045</a> <span class="preprocessor">#define MOUSE_CPI                       400             </span>
+<a name="l00046"></a><a class="code" href="bot-local_8h.html#bec20a794100004d6b29f92f5acf3f79">00046</a> <span class="preprocessor">#define MOUSE_FULL_TURN 1484    </span>
+<a name="l00048"></a><a class="code" href="bot-local_8h.html#eec35d5fa40cda2b874fd262a1268b5e">00048</a> <span class="preprocessor">#define WHEEL_DISTANCE          49              </span>
+<a name="l00049"></a><a class="code" href="bot-local_8h.html#b2cdaccbdb2a5ced97235ae1d46b3b48">00049</a> <span class="preprocessor">#define STUCK_DIFF                      100             </span>
+<a name="l00050"></a><a class="code" href="bot-local_8h.html#be09c2e4ff0592a4b0c690f928aa8248">00050</a> <span class="preprocessor">#define G_SPEED                 0.5             </span>
+<a name="l00051"></a><a class="code" href="bot-local_8h.html#b0eac191371aff2d2022d5aa78b9c278">00051</a> <span class="preprocessor">#define G_POS                           0.5             </span>
+<a name="l00054"></a><a class="code" href="bot-local_8h.html#03cdbdafb2494e4a4ff05c061333ad29">00054</a> <span class="preprocessor">#define ANGLE_CONSTANT          (WHEEL_TO_WHEEL_DIAMETER * ENCODER_MARKS / WHEEL_DIAMETER)</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span>
+<a name="l00056"></a>00056 <span class="comment">/* Motorregelung */</span>
+<a name="l00057"></a><a class="code" href="bot-local_8h.html#22086bc47085e3633eb4d873b64fdeb4">00057</a> <span class="preprocessor">#define PID_LOW_RATE    (BOT_SPEED_MEDIUM / SPEED_TO_ENCODER_RATE)      </span>
+<a name="l00058"></a><a class="code" href="bot-local_8h.html#8fd19160c8c41a0b4176b672a3e7196b">00058</a> <span class="preprocessor">#define PID_LOW_Kp      8       </span>
+<a name="l00059"></a><a class="code" href="bot-local_8h.html#bdefeab7a8b1250e2a645465ce17e73c">00059</a> <span class="preprocessor">#define PID_LOW_Ki      6       </span>
+<a name="l00060"></a><a class="code" href="bot-local_8h.html#f0acebaf889dbb6b740e181b1ae19617">00060</a> <span class="preprocessor">#define PID_LOW_Kd      0       </span>
+<a name="l00062"></a><a class="code" href="bot-local_8h.html#010410f20ee04c8462d635dfdda04b01">00062</a> <span class="preprocessor">#define PID_HIGH_RATE   (BOT_SPEED_NORMAL / SPEED_TO_ENCODER_RATE) </span>
+<a name="l00063"></a><a class="code" href="bot-local_8h.html#ff730a484b8ac31e2ffe8c34c5cc22ea">00063</a> <span class="preprocessor">#define PID_HIGH_Kp     70      </span>
+<a name="l00064"></a><a class="code" href="bot-local_8h.html#99074d49be2cce1d1740248f299880e8">00064</a> <span class="preprocessor">#define PID_HIGH_Ki     40      </span>
+<a name="l00065"></a><a class="code" href="bot-local_8h.html#2ecb1becebcbe755b6210c835d3d1fef">00065</a> <span class="preprocessor">#define PID_HIGH_Kd     0       </span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span><span class="comment">/* Einstellunge fuer die Verhaltensregeln */</span>
+<a name="l00068"></a><a class="code" href="bot-local_8h.html#98ae709ace7eaebe8e5ad09daf5c357a">00068</a> <span class="preprocessor">#define BORDER_DANGEROUS        0x3A0   </span>
+<a name="l00070"></a><a class="code" href="bot-local_8h.html#dbe925635e0894c00e07f4eb042b0483">00070</a> <span class="preprocessor">#define COL_CLOSEST             200             </span>
+<a name="l00071"></a><a class="code" href="bot-local_8h.html#43005cd3c449e4cd248e6eeb2cce2276">00071</a> <span class="preprocessor">#define COL_NEAR                        300             </span>
+<a name="l00072"></a><a class="code" href="bot-local_8h.html#e67fffeeabe2d4d2cd96dedec718b944">00072</a> <span class="preprocessor">#define COL_FAR                 400             </span>
+<a name="l00074"></a><a class="code" href="bot-local_8h.html#335a6bade4423559529eea26f334c304">00074</a> <span class="preprocessor">#define ZONE_CLOSEST    0                       </span>
+<a name="l00075"></a><a class="code" href="bot-local_8h.html#9b2af96d30daf809734ae98f096c21f1">00075</a> <span class="preprocessor">#define ZONE_NEAR               1                       </span>
+<a name="l00076"></a><a class="code" href="bot-local_8h.html#94ee7f61baa97dd577960e79c37eed82">00076</a> <span class="preprocessor">#define ZONE_FAR                2                       </span>
+<a name="l00077"></a><a class="code" href="bot-local_8h.html#e112a03140a0854c6f48bb3d979bb37d">00077</a> <span class="preprocessor">#define ZONE_CLEAR              3                       </span>
+<a name="l00079"></a><a class="code" href="bot-local_8h.html#b452128a6b33891453befac4065d83be">00079</a> <span class="preprocessor">#define BRAKE_CLOSEST   -1.0            </span>
+<a name="l00080"></a><a class="code" href="bot-local_8h.html#600955f746339434e1a5c9b6156ef629">00080</a> <span class="preprocessor">#define BRAKE_NEAR              0.6             </span>
+<a name="l00081"></a><a class="code" href="bot-local_8h.html#1bba807ffe0ab5862d497cf5dbd36713">00081</a> <span class="preprocessor">#define BRAKE_FAR               0.8                     </span>
+<a name="l00083"></a><a class="code" href="bot-local_8h.html#d97d793c78fdb4ebcd9237b36e2fa5bd">00083</a> <span class="preprocessor">#define GLANCE_FACTOR           0.9             </span>
+<a name="l00084"></a><a class="code" href="bot-local_8h.html#11ac7eb87aeb026b315f1b6b10c1d5d1">00084</a> <span class="preprocessor">#define GLANCE_STRAIGHT 20              </span>
+<a name="l00085"></a><a class="code" href="bot-local_8h.html#9f8e90612b22bd283b99748f6b59f129">00085</a> <span class="preprocessor">#define GLANCE_SIDE             5               </span>
+<a name="l00087"></a><a class="code" href="bot-local_8h.html#743cf751a90efcdddfe5f5a866eada2e">00087</a> <span class="preprocessor">#define MOT_GOTO_MAX     4                      </span>
+<a name="l00088"></a><a class="code" href="bot-local_8h.html#3782d97fe4e7014b3c00cfab9f86572b">00088</a> <span class="preprocessor">#define GOTO_REACHED     2                      </span>
+<a name="l00089"></a><a class="code" href="bot-local_8h.html#ba40cf3dc19d666b8d785a3f26b6386c">00089</a> <span class="preprocessor">#define GOTO_SLOW                4                      </span>
+<a name="l00090"></a><a class="code" href="bot-local_8h.html#23b4960e4292a92b4a614979047eee03">00090</a> <span class="preprocessor">#define GOTO_NORMAL     10                      </span>
+<a name="l00091"></a><a class="code" href="bot-local_8h.html#e0f19e5567ab958aed97fec6ff1edb8c">00091</a> <span class="preprocessor">#define GOTO_FAST               40                      </span>
+<a name="l00094"></a><a class="code" href="bot-local_8h.html#f78b65cbfa35fac82c79790a4e319d37">00094</a> <span class="preprocessor">#define BOT_BEHAVIOUR_RUNNING   1               </span>
+<a name="l00095"></a><a class="code" href="bot-local_8h.html#9c0094ebe1433452906a85842abc8667">00095</a> <span class="preprocessor">#define BOT_BEHAVIOUR_DONE              0               </span>
+<a name="l00097"></a>00097 <span class="preprocessor"></span><span class="comment">/* Zustaende des bot_explore-Verhaltens */</span>
+<a name="l00098"></a>00098 
+<a name="l00099"></a><a class="code" href="bot-local_8h.html#69113b120092e0c204af03e464f38d3b">00099</a> <span class="preprocessor">#define EXPLORATION_STATE_GOTO_WALL                     1       </span>
+<a name="l00100"></a><a class="code" href="bot-local_8h.html#757b3dd102232bc430e650051c7d2e83">00100</a> <span class="preprocessor">#define EXPLORATION_STATE_TURN_PARALLEL_LEFT    2       </span>
+<a name="l00101"></a><a class="code" href="bot-local_8h.html#ba34f6fa994ceaf7d3d93982bc70651f">00101</a> <span class="preprocessor">#define EXPLORATION_STATE_TURN_PARALLEL_RIGHT   3       </span>
+<a name="l00102"></a><a class="code" href="bot-local_8h.html#6709ce8e9b3a3cd030dcadec34267eb0">00102</a> <span class="preprocessor">#define EXPLORATION_STATE_DRIVE_PARALLEL_LEFT   4       </span>
+<a name="l00103"></a><a class="code" href="bot-local_8h.html#57fba7623f16eb62e3b8521220fcdfd9">00103</a> <span class="preprocessor">#define EXPLORATION_STATE_DRIVE_PARALLEL_RIGHT  5       </span>
+<a name="l00104"></a><a class="code" href="bot-local_8h.html#b2eeafcee9848af701da9c1b10c2a26d">00104</a> <span class="preprocessor">#define EXPLORATION_STATE_TURN_ORTHOGONAL_LEFT  6       </span>
+<a name="l00105"></a><a class="code" href="bot-local_8h.html#8a766bc558ebdc7d5f622042f2a5c5b5">00105</a> <span class="preprocessor">#define EXPLORATION_STATE_TURN_ORTHOGONAL_RIGHT 7       </span>
+<a name="l00106"></a><a class="code" href="bot-local_8h.html#42dc1306761f74026e2174e019fb6d6d">00106</a> <span class="preprocessor">#define EXPLORATION_STATE_DRIVE_ARC                             8       </span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span><span class="comment">/* Zustaende des bot_olympic_behaviour-Verhaltens */</span> 
+<a name="l00110"></a>00110 
+<a name="l00111"></a><a class="code" href="bot-local_8h.html#7ee95743146e7196736e32de6ff6946d">00111</a> <span class="preprocessor">#define CB_STATE_EXPLORATION            0       </span>
+<a name="l00112"></a><a class="code" href="bot-local_8h.html#e9ffa9dafa40147ada5333b296a60e7f">00112</a> <span class="preprocessor">#define CB_STATE_DOING_SLALOM           1       </span>
+<a name="l00114"></a>00114 <span class="preprocessor"></span><span class="comment">/* Zustaende des bot_do_slalom-Verhaltens */</span> 
+<a name="l00115"></a>00115 
+<a name="l00116"></a><a class="code" href="bot-local_8h.html#1d6749b6de21ab2d9011426f56f4b6f6">00116</a> <span class="preprocessor">#define SLALOM_STATE_START                      0       </span>
+<a name="l00117"></a><a class="code" href="bot-local_8h.html#9a1244f0aab8cd1da0a9b39b6c8dc982">00117</a> <span class="preprocessor">#define SLALOM_STATE_TURN_1             1       </span>
+<a name="l00118"></a><a class="code" href="bot-local_8h.html#e7deec2426366dc65442b625353f7014">00118</a> <span class="preprocessor">#define SLALOM_STATE_DRIVE_ARC          2       </span>
+<a name="l00119"></a><a class="code" href="bot-local_8h.html#c0724be673dc3d766bf875c04e7f0940">00119</a> <span class="preprocessor">#define SLALOM_STATE_TURN_2             3       </span>
+<a name="l00120"></a><a class="code" href="bot-local_8h.html#877cfcbea289a90ea986a02149c3cb8d">00120</a> <span class="preprocessor">#define SLALOM_STATE_SWEEP_RUNNING      4       </span>
+<a name="l00121"></a><a class="code" href="bot-local_8h.html#bee130efdc6b112a3b87229c81727f9a">00121</a> <span class="preprocessor">#define SLALOM_STATE_SWEEP_DONE 5       </span>
+<a name="l00122"></a><a class="code" href="bot-local_8h.html#78c8bc315db45360f82de15a8f31be4b">00122</a> <span class="preprocessor">#define SLALOM_STATE_CHECK_PILLAR       6       </span>
+<a name="l00124"></a>00124 <span class="preprocessor">#define SLALOM_ORIENTATION_LEFT 0</span>
+<a name="l00125"></a>00125 <span class="preprocessor"></span><span class="preprocessor">#define SLALOM_ORIENTATION_RIGHT        1</span>
+<a name="l00126"></a>00126 <span class="preprocessor"></span>
+<a name="l00127"></a><a class="code" href="bot-local_8h.html#76ca7ab309289db37313567c02209258">00127</a> <span class="preprocessor">#define SWEEP_STATE_TURN                        0       </span>
+<a name="l00128"></a><a class="code" href="bot-local_8h.html#744c85b05f0aab7cc83897912c4525f0">00128</a> <span class="preprocessor">#define SWEEP_STATE_CHECK                       1       </span>
+<a name="l00130"></a>00130 <span class="preprocessor"></span><span class="comment">/* Zustaende und Konstanten fuer das bot_solve_maze_behaviour-Verhalten */</span>
+<a name="l00131"></a>00131 <span class="preprocessor">#define BOT_DIAMETER                            12</span>
+<a name="l00132"></a>00132 <span class="preprocessor"></span><span class="preprocessor">#define OPTIMAL_DISTANCE                        BOT_DIAMETER*12</span>
+<a name="l00133"></a>00133 <span class="preprocessor"></span><span class="preprocessor">#define ADJUST_DISTANCE                 10</span>
+<a name="l00134"></a>00134 <span class="preprocessor"></span><span class="preprocessor">#define IGNORE_DISTANCE                 240</span>
+<a name="l00135"></a>00135 <span class="preprocessor"></span><span class="preprocessor">#define GROUND_GOAL                             0x221</span>
+<a name="l00136"></a>00136 <span class="preprocessor"></span><span class="preprocessor">#define STARTPAD1                                       0x2B2</span>
+<a name="l00137"></a>00137 <span class="preprocessor"></span><span class="preprocessor">#define STARTPAD2                                       0x332</span>
+<a name="l00138"></a>00138 <span class="preprocessor"></span>
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 <span class="comment">/* Konstanten fuer das bot_follow_line_behaviour-Verhalten */</span>
+<a name="l00141"></a>00141 <span class="preprocessor">#define LINE_SENSE                                      0x350   // Ab wann ist es Linie? (Fuer den Sim auf 350 setzen, helle Tischflaeche 50)</span>
+<a name="l00142"></a>00142 <span class="preprocessor"></span>
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 <span class="preprocessor">#endif </span><span class="comment">/*BOTLOCAL_H_*/</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:12 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

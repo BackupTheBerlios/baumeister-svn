@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: command.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>command.h</h1><a href="command_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * c't-Sim - Robotersimulator fuer den c't-Bot</span>
+<a name="l00003"></a>00003 <span class="comment"> * </span>
+<a name="l00004"></a>00004 <span class="comment"> * This program is free software; you can redistribute it</span>
+<a name="l00005"></a>00005 <span class="comment"> * and/or modify it under the terms of the GNU General</span>
+<a name="l00006"></a>00006 <span class="comment"> * Public License as published by the Free Software</span>
+<a name="l00007"></a>00007 <span class="comment"> * Foundation; either version 2 of the License, or (at your</span>
+<a name="l00008"></a>00008 <span class="comment"> * option) any later version. </span>
+<a name="l00009"></a>00009 <span class="comment"> * This program is distributed in the hope that it will be </span>
+<a name="l00010"></a>00010 <span class="comment"> * useful, but WITHOUT ANY WARRANTY; without even the implied</span>
+<a name="l00011"></a>00011 <span class="comment"> * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR </span>
+<a name="l00012"></a>00012 <span class="comment"> * PURPOSE. See the GNU General Public License for more details.</span>
+<a name="l00013"></a>00013 <span class="comment"> * You should have received a copy of the GNU General Public </span>
+<a name="l00014"></a>00014 <span class="comment"> * License along with this program; if not, write to the Free </span>
+<a name="l00015"></a>00015 <span class="comment"> * Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,</span>
+<a name="l00016"></a>00016 <span class="comment"> * MA 02111-1307, USA.</span>
+<a name="l00017"></a>00017 <span class="comment"> * </span>
+<a name="l00018"></a>00018 <span class="comment"> */</span>
+<a name="l00019"></a>00019 
+<a name="l00026"></a>00026 <span class="preprocessor">#ifndef __command_h_</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define __command_h_ </span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include "<a class="code" href="global_8h.html">global.h</a>"</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include "<a class="code" href="ct-Bot_8h.html">ct-Bot.h</a>"</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a><a class="code" href="command_8h.html#a7a7521abb3a3664218d8dc0e3759f0f">00032</a> <span class="preprocessor">#define MAX_PAYLOAD 255  </span>
+<a name="l00034"></a>00034 <span class="preprocessor">#ifdef PC</span>
+<a name="l00035"></a><a class="code" href="command_8h.html#7b73b86c514a68c1d7598f9bc98bbfea">00035</a> <span class="preprocessor"></span><span class="preprocessor">        #define low_read tcp_read       </span>
+<a name="l00036"></a><a class="code" href="command_8h.html#07d2dc498afa0d8c5e1aefff80b8cac3">00036</a> <span class="preprocessor">        #define low_write tcp_send_cmd </span>
+<a name="l00037"></a><a class="code" href="command_8h.html#0d2679ce57e49642096d660616663997">00037</a> <span class="preprocessor">        #define low_write_data tcp_write </span>
+<a name="l00038"></a>00038 <span class="preprocessor">#endif</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a>00040 <span class="preprocessor">#ifdef MCU</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">        #define low_read uart_read      </span>
+<a name="l00042"></a>00042 <span class="preprocessor">        #define low_write uart_send_cmd </span>
+<a name="l00043"></a>00043 <span class="preprocessor">//      #define low_write uart_send_cmd </span>
+<a name="l00044"></a>00044 <span class="preprocessor">        #define low_write_data uart_write </span>
+<a name="l00045"></a>00045 <span class="preprocessor">#endif</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00047"></a>00047 
+<a name="l00051"></a><a class="code" href="struct____attribute____.html">00051</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00052"></a><a class="code" href="struct____attribute____.html#dcfd8508bf4ef229101459b02c3bcef1">00052</a>         <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> command:8;        
+<a name="l00053"></a><a class="code" href="struct____attribute____.html#7813b9811b6aba51c755f83f2e350a59">00053</a>         <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> subcommand:7;     
+<a name="l00054"></a><a class="code" href="struct____attribute____.html#1c383074843abf282139e3d02fe8e4ce">00054</a>         <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="motor_8h.html#96703dcd865ea4cfb315cab528b061d8">direction</a>:1;      
+<a name="l00055"></a>00055 <span class="preprocessor">#ifndef DOXYGEN</span>
+<a name="l00056"></a>00056 <span class="preprocessor"></span>        } <a class="code" href="struct____attribute____.html">__attribute__</a> ((packed)) request_t; <span class="comment">// Keine Luecken in der Struktur lassen</span>
+<a name="l00057"></a>00057 <span class="preprocessor">#else</span>
+<a name="l00058"></a>00058 <span class="preprocessor"></span>        } request_t; <span class="comment">// Keine Luecken in der Struktur lassen</span>
+<a name="l00059"></a>00059 <span class="preprocessor">#endif</span>
+<a name="l00060"></a>00060 <span class="preprocessor"></span>
+<a name="l00064"></a>00064 <span class="keyword">typedef</span> <span class="keyword">struct </span>{
+<a name="l00065"></a><a class="code" href="struct____attribute____.html#2bde6d91b0a2edb6f485bf0f7a0df093">00065</a>         <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> startCode;        
+<a name="l00066"></a><a class="code" href="struct____attribute____.html#ba50e21d5808cd8230c7ea7b47fab054">00066</a>         request_t request;                      
+<a name="l00067"></a><a class="code" href="struct____attribute____.html#61258cc20229794d8261d08e13d80934">00067</a>         <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>  payload;         
+<a name="l00068"></a><a class="code" href="struct____attribute____.html#e327859bbfd0f0c148dda930e428d8a3">00068</a>         <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> data_l;                           
+<a name="l00069"></a><a class="code" href="struct____attribute____.html#ce08383696a430c658d8415b8ec8c612">00069</a>         <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> data_r;                           
+<a name="l00070"></a><a class="code" href="struct____attribute____.html#16368e7de6ad479cd04a9fe79b069193">00070</a>         <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a> seq;                                      
+<a name="l00071"></a><a class="code" href="struct____attribute____.html#4db05b0e0507b04b8aae5eda23fb608a">00071</a>         <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> CRC;                      
+<a name="l00072"></a>00072 <span class="preprocessor">#ifndef DOXYGEN</span>
+<a name="l00073"></a>00073 <span class="preprocessor"></span>        } <a class="code" href="struct____attribute____.html">__attribute__</a> ((packed)) command_t;<span class="comment">// Keine Luecken in der Struktur lassen</span>
+<a name="l00074"></a>00074 <span class="preprocessor">#else</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span>        } command_t;
+<a name="l00076"></a>00076 <span class="preprocessor">#endif</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>
+<a name="l00078"></a><a class="code" href="command_8h.html#82d1f04eaa5c68ac58359114ceb74cf4">00078</a> <span class="preprocessor">#define CMD_STARTCODE   '&gt;'             </span>
+<a name="l00079"></a><a class="code" href="command_8h.html#942e147f172bbd7100bddcca90ed3c3b">00079</a> <span class="preprocessor">#define CMD_STOPCODE    '&lt;'             </span>
+<a name="l00081"></a>00081 <span class="preprocessor">//Sensoren</span>
+<a name="l00082"></a><a class="code" href="command_8h.html#05c19117c56d09759fc70d0167ec5b3d">00082</a> <span class="preprocessor"></span><span class="preprocessor">#define CMD_SENS_IR     'I'             </span>
+<a name="l00083"></a><a class="code" href="command_8h.html#afd1c62c002ec9e13df526774a61087e">00083</a> <span class="preprocessor">#define CMD_SENS_ENC    'E'             </span>
+<a name="l00084"></a><a class="code" href="command_8h.html#f713c4f6167335d20267ec2d0fc33adf">00084</a> <span class="preprocessor">#define CMD_SENS_BORDER 'B'     </span>
+<a name="l00085"></a><a class="code" href="command_8h.html#3d9b86bae56b6374862b7865a3548846">00085</a> <span class="preprocessor">#define CMD_SENS_LINE   'L'             </span>
+<a name="l00086"></a><a class="code" href="command_8h.html#d96f0a16395f789d7e94d01fed4bfd40">00086</a> <span class="preprocessor">#define CMD_SENS_LDR    'H'             </span>
+<a name="l00087"></a><a class="code" href="command_8h.html#ac5f604aee68879c01369f486b025ff2">00087</a> <span class="preprocessor">#define CMD_SENS_TRANS  'T'             </span>
+<a name="l00088"></a><a class="code" href="command_8h.html#46a160fb1f3b04fcb64c901a941b5c8d">00088</a> <span class="preprocessor">#define CMD_SENS_DOOR   'D'             </span>
+<a name="l00089"></a><a class="code" href="command_8h.html#52f23611d45ba9cdaad25f0d8380ddb0">00089</a> <span class="preprocessor">#define CMD_SENS_MOUSE  'm'             </span>
+<a name="l00090"></a><a class="code" href="command_8h.html#389c16135b110b6b0ca2d0863bc64999">00090</a> <span class="preprocessor">#define CMD_SENS_ERROR 'e'              </span>
+<a name="l00091"></a><a class="code" href="command_8h.html#9b17cedc408a9f7ed418e251d64aee6e">00091</a> <span class="preprocessor">#define CMD_SENS_RC5    'R'             </span>
+<a name="l00093"></a><a class="code" href="command_8h.html#f20644b9dc6c41fa417071a7c33ec60d">00093</a> <span class="preprocessor">#define CMD_SENS_MOUSE_PICTURE  'P'             </span>
+<a name="l00096"></a>00096 <span class="preprocessor">// Aktuatoren</span>
+<a name="l00097"></a><a class="code" href="command_8h.html#88b061a4bde55ce568a54ff57ac62a21">00097</a> <span class="preprocessor"></span><span class="preprocessor">#define CMD_AKT_MOT     'M'             </span>
+<a name="l00098"></a><a class="code" href="command_8h.html#533b4e36c9f3b4ab106086c9641a151a">00098</a> <span class="preprocessor">#define CMD_AKT_DOOR    'd'             </span>
+<a name="l00099"></a><a class="code" href="command_8h.html#f41996e01ba17e6650e57d0dcc054528">00099</a> <span class="preprocessor">#define CMD_AKT_SERVO   'S'             </span>
+<a name="l00100"></a><a class="code" href="command_8h.html#99084516162a09cef2952d5a7470fad1">00100</a> <span class="preprocessor">#define CMD_AKT_LED     'l'             </span>
+<a name="l00101"></a><a class="code" href="command_8h.html#f0092161fc36fa91f800f716ee9656ab">00101</a> <span class="preprocessor">#define CMD_AKT_LCD    'c'     </span>
+<a name="l00103"></a><a class="code" href="command_8h.html#35cc95952674b5c7e9b0061af6a4742f">00103</a> <span class="preprocessor">#define SUB_CMD_NORM    'N'             </span>
+<a name="l00104"></a><a class="code" href="command_8h.html#36a6927a0c182d4ac9befc1822591ed1">00104</a> <span class="preprocessor">#define SUB_CMD_LEFT    'L'             </span>
+<a name="l00105"></a><a class="code" href="command_8h.html#4a7044f0609342595b895ffaaa46890f">00105</a> <span class="preprocessor">#define SUB_CMD_RIGHT   'R'             </span>
+<a name="l00107"></a>00107 <span class="preprocessor">// Subcommandos fuer LCD</span>
+<a name="l00108"></a><a class="code" href="command_8h.html#479a46ffbdd3b4cb3f267da58e53cb0a">00108</a> <span class="preprocessor"></span><span class="preprocessor">#define SUB_LCD_CLEAR   'c'     </span>
+<a name="l00109"></a><a class="code" href="command_8h.html#c45fffe9bff24aa77fed2ef6f6632d20">00109</a> <span class="preprocessor">#define SUB_LCD_DATA    'D'     </span>
+<a name="l00110"></a><a class="code" href="command_8h.html#00fa6a83c3509f9f1269de7356c8402b">00110</a> <span class="preprocessor">#define SUB_LCD_CURSOR  'C'     </span>
+<a name="l00112"></a>00112 <span class="preprocessor">// Log-Ausgaben</span>
+<a name="l00113"></a><a class="code" href="command_8h.html#abd91abba7f22667a08ecb170bfa5f3a">00113</a> <span class="preprocessor"></span><span class="preprocessor">#define CMD_LOG                 'O'             </span>
+<a name="l00115"></a>00115 <span class="preprocessor">//Kommandos fuer die Verbindung zum c't-Sim</span>
+<a name="l00116"></a><a class="code" href="command_8h.html#3c06065c98a7a1ebc7c2a4d603c3f550">00116</a> <span class="preprocessor"></span><span class="preprocessor">#define CMD_WELCOME             'W'             </span>
+<a name="l00117"></a><a class="code" href="command_8h.html#347814bf522306ffc3bfa5b7d0541a91">00117</a> <span class="preprocessor">#define SUB_WELCOME_REAL        'R'             </span>
+<a name="l00118"></a><a class="code" href="command_8h.html#21bf8292084b588d9d4449e56a389af0">00118</a> <span class="preprocessor">#define SUB_WELCOME_SIM 'S'             </span>
+<a name="l00122"></a><a class="code" href="command_8h.html#b7eaefb631c35626040981ef1e5e7244">00122</a> <span class="preprocessor">#define DIR_REQUEST     0                       </span>
+<a name="l00123"></a><a class="code" href="command_8h.html#612e81400985376231bd5ee886f4e21b">00123</a> <span class="preprocessor">#define DIR_ANSWER              1                       </span>
+<a name="l00125"></a>00125 <span class="preprocessor">#ifdef PC       // Auf dem PC muss der Zugriff auf received_command Thread-sicher sein</span>
+<a name="l00126"></a>00126 <span class="preprocessor"></span><span class="preprocessor">        #include &lt;pthread.h&gt;</span>
+<a name="l00127"></a>00127         <span class="keyword">extern</span> pthread_mutex_t     <a class="code" href="command_8h.html#a9df21c6a78a131c9496faa7dfc9eb7f">command_mutex</a>;       
+<a name="l00128"></a><a class="code" href="command_8h.html#3107b4b7e7aa98754352de256a821405">00128</a> <span class="preprocessor">        #define command_lock()          pthread_mutex_lock(&amp;command_mutex) </span>
+<a name="l00129"></a><a class="code" href="command_8h.html#bbf8902b221995e480d48b084c395dd3">00129</a> <span class="preprocessor">        #define command_unlock()        pthread_mutex_unlock(&amp;command_mutex) </span>
+<a name="l00130"></a>00130 <span class="preprocessor">#endif</span>
+<a name="l00131"></a>00131 <span class="preprocessor"></span>
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="keyword">extern</span> command_t <a class="code" href="command_8h.html#c0048910da59c3a22177b20c8ce0b3b6">received_command</a>;              
+<a name="l00140"></a>00140 <span class="keywordtype">int</span> <a class="code" href="command_8h.html#6a9035e586b2ff58e37a07e4bb0bc24c">command_read</a>(<span class="keywordtype">void</span>); 
+<a name="l00141"></a>00141 
+<a name="l00150"></a>00150 <span class="keywordtype">void</span> <a class="code" href="command_8h.html#3bcdfcfc05b9579251dfb3806ab385d3">command_write</a>(<a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> command, <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> subcommand, <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>* data_l,<a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>* data_r,<a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> payload);
+<a name="l00151"></a>00151 
+<a name="l00160"></a>00160 <span class="keywordtype">void</span> <a class="code" href="command_8h.html#a245f6ac80db1b5d3582c21d14b3a8d4">command_write_data</a>(<a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> command, <a class="code" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> subcommand, <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>* data_l, <a class="code" href="global_8h.html#df957e9fa8c95c188ffacb8197aa8725">int16</a>* data_r, <span class="keyword">const</span> <span class="keywordtype">char</span>* data);
+<a name="l00161"></a>00161 
+<a name="l00166"></a>00166 <span class="keywordtype">int</span> <a class="code" href="command_8h.html#ff99c12510b091b6a2a100eb514bb44e">command_evaluate</a>(<span class="keywordtype">void</span>);
+<a name="l00167"></a>00167 
+<a name="l00171"></a>00171 <span class="keywordtype">void</span> <a class="code" href="command_8h.html#5e6f6df20c68ab88ebd328cf00de8e2e">command_display</a>(command_t * command);
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 <span class="preprocessor">#endif</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:12 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: mouse.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_47bb8d62191c5592dae80a1a2ca0cfd0.html">include</a></div>
+<h1>mouse.h-Dateireferenz</h1>Routinen fuer die Ansteuerung eines optischen Maussensors. <a href="#_details">Mehr ...</a>
+<p>
+
+<p>
+<a href="mouse_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#b32416de234800f1f47d73e93e68b0e9">ADNS2610</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#02c79196b15d9a5c32a4aca4bba8cf05">MOUSE_CONFIG_REG</a>&nbsp;&nbsp;&nbsp;0x00</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#364997633d147804586bc637da05ee23">MOUSE_STATUS_REG</a>&nbsp;&nbsp;&nbsp;0x01</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#a8aaa6f1021a9480addbf3cc91599dbe">MOUSE_DELTA_Y_REG</a>&nbsp;&nbsp;&nbsp;0x02</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#43a1caa6b6e1c32c7d279124cb413ce2">MOUSE_DELTA_X_REG</a>&nbsp;&nbsp;&nbsp;0x03</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#7fab3b6733f8581e0fa6ad80f47c82cf">MOUSE_SQUAL_REG</a>&nbsp;&nbsp;&nbsp;0x04</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#d9f68c25da31e8b0b09130fe1428f7c0">MOUSE_MAX_PIXEL_REG</a>&nbsp;&nbsp;&nbsp;0x05</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#407f1a98dedbeed497bf00d3bce283c7">MOUSE_MIN_PIXEL_REG</a>&nbsp;&nbsp;&nbsp;0x06</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#cd4e01429ff8bddea36c65d233e4362f">MOUSE_PIXEL_SUM_REG</a>&nbsp;&nbsp;&nbsp;0x07</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#aa75200eade728461267ae3b089d375b">MOUSE_PIXEL_DATA_REG</a>&nbsp;&nbsp;&nbsp;0x08</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#b451f9a0c3692b8e4393bb2a512a306d">MOUSE_SHUTTER_UPPER_REG</a>&nbsp;&nbsp;&nbsp;0x09</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#c1bedcf58923fe7e9cf421fead0bd728">MOUSE_SHUTTER_LOWER_REG</a>&nbsp;&nbsp;&nbsp;0x0A</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#40ad3e6b528cc58d96b4ceb19539cc7e">MOUSE_INVERSE_PRODUCT_ID_REG</a>&nbsp;&nbsp;&nbsp;0x11</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#1dbde03b47a8b310e8570cba78be847a">MOUSE_CFG_RESET</a>&nbsp;&nbsp;&nbsp;0x80</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#eea649df4e02002b53ae7ed245552328">MOUSE_CFG_POWERDOWN</a>&nbsp;&nbsp;&nbsp;0x40</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#43a75ec756d84a108cfab5a5ea7aa9c7">MOUSE_CFG_FORCEAWAKE</a>&nbsp;&nbsp;&nbsp;0x01</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#2bbaa2a19c889bbe6ebdafcddadefc62">maus_sens_init</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#5a0561d7f4eb977538745f837170ec15">maus_sens_read</a> (<a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> adr)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#b821bb514964ed8f2fd88b5926c1384f">maus_image_read</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#dccd085a7bce8199e343bf1e801afd7f">maus_image_prepare</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="mouse_8h.html#3cf9c2fd1a6042b425e912e52df0e7d5">maus_get_squal</a> (void)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Routinen fuer die Ansteuerung eines optischen Maussensors. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>26.12.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="b32416de234800f1f47d73e93e68b0e9"></a><!-- doxytag: member="mouse.h::ADNS2610" ref="b32416de234800f1f47d73e93e68b0e9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADNS2610          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Welcher Sensortyp? ADNS2610 oder 2620 
+</div>
+</div><p>
+<a class="anchor" name="43a75ec756d84a108cfab5a5ea7aa9c7"></a><!-- doxytag: member="mouse.h::MOUSE_CFG_FORCEAWAKE" ref="43a75ec756d84a108cfab5a5ea7aa9c7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_CFG_FORCEAWAKE&nbsp;&nbsp;&nbsp;0x01          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Keep Sensor awake 
+</div>
+</div><p>
+<a class="anchor" name="eea649df4e02002b53ae7ed245552328"></a><!-- doxytag: member="mouse.h::MOUSE_CFG_POWERDOWN" ref="eea649df4e02002b53ae7ed245552328" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_CFG_POWERDOWN&nbsp;&nbsp;&nbsp;0x40          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Power Down analog Circuit 
+</div>
+</div><p>
+<a class="anchor" name="1dbde03b47a8b310e8570cba78be847a"></a><!-- doxytag: member="mouse.h::MOUSE_CFG_RESET" ref="1dbde03b47a8b310e8570cba78be847a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_CFG_RESET&nbsp;&nbsp;&nbsp;0x80          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Reset Circuit 
+</div>
+</div><p>
+<a class="anchor" name="02c79196b15d9a5c32a4aca4bba8cf05"></a><!-- doxytag: member="mouse.h::MOUSE_CONFIG_REG" ref="02c79196b15d9a5c32a4aca4bba8cf05" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_CONFIG_REG&nbsp;&nbsp;&nbsp;0x00          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Reset, Power Down, Forced Awake, etc 
+</div>
+</div><p>
+<a class="anchor" name="43a1caa6b6e1c32c7d279124cb413ce2"></a><!-- doxytag: member="mouse.h::MOUSE_DELTA_X_REG" ref="43a1caa6b6e1c32c7d279124cb413ce2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_DELTA_X_REG&nbsp;&nbsp;&nbsp;0x03          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+X Movement 
+</div>
+</div><p>
+<a class="anchor" name="a8aaa6f1021a9480addbf3cc91599dbe"></a><!-- doxytag: member="mouse.h::MOUSE_DELTA_Y_REG" ref="a8aaa6f1021a9480addbf3cc91599dbe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_DELTA_Y_REG&nbsp;&nbsp;&nbsp;0x02          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Y Movement 
+</div>
+</div><p>
+<a class="anchor" name="40ad3e6b528cc58d96b4ceb19539cc7e"></a><!-- doxytag: member="mouse.h::MOUSE_INVERSE_PRODUCT_ID_REG" ref="40ad3e6b528cc58d96b4ceb19539cc7e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_INVERSE_PRODUCT_ID_REG&nbsp;&nbsp;&nbsp;0x11          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Inverse Product ID 
+</div>
+</div><p>
+<a class="anchor" name="d9f68c25da31e8b0b09130fe1428f7c0"></a><!-- doxytag: member="mouse.h::MOUSE_MAX_PIXEL_REG" ref="d9f68c25da31e8b0b09130fe1428f7c0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_MAX_PIXEL_REG&nbsp;&nbsp;&nbsp;0x05          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Maximum Pixel value in current frame. 
+</div>
+</div><p>
+<a class="anchor" name="407f1a98dedbeed497bf00d3bce283c7"></a><!-- doxytag: member="mouse.h::MOUSE_MIN_PIXEL_REG" ref="407f1a98dedbeed497bf00d3bce283c7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_MIN_PIXEL_REG&nbsp;&nbsp;&nbsp;0x06          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Minimum Pixel value in current frame. 
+</div>
+</div><p>
+<a class="anchor" name="aa75200eade728461267ae3b089d375b"></a><!-- doxytag: member="mouse.h::MOUSE_PIXEL_DATA_REG" ref="aa75200eade728461267ae3b089d375b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_PIXEL_DATA_REG&nbsp;&nbsp;&nbsp;0x08          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Actual picture of surface 
+</div>
+</div><p>
+<a class="anchor" name="cd4e01429ff8bddea36c65d233e4362f"></a><!-- doxytag: member="mouse.h::MOUSE_PIXEL_SUM_REG" ref="cd4e01429ff8bddea36c65d233e4362f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_PIXEL_SUM_REG&nbsp;&nbsp;&nbsp;0x07          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+This register is used to find the average pixel value. 
+</div>
+</div><p>
+<a class="anchor" name="c1bedcf58923fe7e9cf421fead0bd728"></a><!-- doxytag: member="mouse.h::MOUSE_SHUTTER_LOWER_REG" ref="c1bedcf58923fe7e9cf421fead0bd728" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_SHUTTER_LOWER_REG&nbsp;&nbsp;&nbsp;0x0A          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+The sensor adjusts the shutter to keep the average and maximum pixel values within normal operating ranges. 
+</div>
+</div><p>
+<a class="anchor" name="b451f9a0c3692b8e4393bb2a512a306d"></a><!-- doxytag: member="mouse.h::MOUSE_SHUTTER_UPPER_REG" ref="b451f9a0c3692b8e4393bb2a512a306d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_SHUTTER_UPPER_REG&nbsp;&nbsp;&nbsp;0x09          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+The sensor adjusts the shutter to keep the average and maximum pixel values within normal operating ranges. 
+</div>
+</div><p>
+<a class="anchor" name="7fab3b6733f8581e0fa6ad80f47c82cf"></a><!-- doxytag: member="mouse.h::MOUSE_SQUAL_REG" ref="7fab3b6733f8581e0fa6ad80f47c82cf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_SQUAL_REG&nbsp;&nbsp;&nbsp;0x04          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Measure of the number of features visible by the sensor 
+</div>
+</div><p>
+<a class="anchor" name="364997633d147804586bc637da05ee23"></a><!-- doxytag: member="mouse.h::MOUSE_STATUS_REG" ref="364997633d147804586bc637da05ee23" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MOUSE_STATUS_REG&nbsp;&nbsp;&nbsp;0x01          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Product ID, Mouse state of Asleep or Awake 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="3cf9c2fd1a6042b425e912e52df0e7d5"></a><!-- doxytag: member="mouse.h::maus_get_squal" ref="3cf9c2fd1a6042b425e912e52df0e7d5" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> maus_get_squal           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Gibt den SQUAL-Wert zurueck. Dieser gibt an, wieviele Merkmale der Sensor im aktuell aufgenommenen Bild des Untergrunds wahrnimmt 
+</div>
+</div><p>
+<a class="anchor" name="dccd085a7bce8199e343bf1e801afd7f"></a><!-- doxytag: member="mouse.h::maus_image_prepare" ref="dccd085a7bce8199e343bf1e801afd7f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maus_image_prepare           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Bereitet das auslesen eines ganzen Bildes vor 
+</div>
+</div><p>
+<a class="anchor" name="b821bb514964ed8f2fd88b5926c1384f"></a><!-- doxytag: member="mouse.h::maus_image_read" ref="b821bb514964ed8f2fd88b5926c1384f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#1b956fe1df85f3c132b21edb4e116458">int8</a> maus_image_read           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liefert bei jedem Aufruf das naechste Pixel des Bildes Insgesamt gibt es 324 Pixel <pre>
+ 18 36 ... 324
+ .. .. ... ..
+  2 20 ... ..
+  1 19 ... 307
+ </pre> Bevor diese Funktion aufgerufen wird, muss <a class="el" href="mouse_8h.html#dccd085a7bce8199e343bf1e801afd7f">maus_image_prepare()</a> aufgerufen werden! <dl compact><dt><b>Rückgabe:</b></dt><dd>Die Pixeldaten (Bit 0 bis Bit5), Pruefbit, ob Daten gueltig (Bit6), Markierung fuer den Anfang eines Frames (Bit7) </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="2bbaa2a19c889bbe6ebdafcddadefc62"></a><!-- doxytag: member="mouse.h::maus_sens_init" ref="2bbaa2a19c889bbe6ebdafcddadefc62" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void maus_sens_init           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initialisiere Maussensor 
+</div>
+</div><p>
+<a class="anchor" name="5a0561d7f4eb977538745f837170ec15"></a><!-- doxytag: member="mouse.h::maus_sens_read" ref="5a0561d7f4eb977538745f837170ec15" args="(uint8 adr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a> maus_sens_read           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="global_8h.html#dde6aaee8457bee49c2a92621fe22b79">uint8</a>&nbsp;</td>
+          <td class="paramname"> <em>adr</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Schickt ein Lesekommando an den Sensor und liest ein Byte zurueck <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>adr</em>&nbsp;</td><td>die Adresse </td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Rückgabe:</b></dt><dd>das Datum </dd></dl>
+
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>

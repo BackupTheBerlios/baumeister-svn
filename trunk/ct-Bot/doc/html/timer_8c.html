@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>c&apos;t-Bot: timer.c-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.7 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<h1>timer.c-Dateireferenz</h1>Zeitmanagement. <a href="#_details">Mehr ...</a>
+<p>
+<code>#include &quot;<a class="el" href="ct-Bot_8h-source.html">ct-Bot.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="timer_8h-source.html">timer.h</a>&quot;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Makrodefinitionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#efb7db7456a848e7cefe90816a5aaa88">LOCK</a>()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#19b1665d85404627bdc076a60e21d926">UNLOCK</a>()</td></tr>
+
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#55c2ec6ee6d914d90c4aff3d9d2900ac">timer_get_us</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#5da10922d8c7c690cedfb081cbd251aa">timer_get_ms</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#7d04063f7a1f2fd2016628def5473c01">timer_get_s</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#66fc6b2428ce4b7312cae6478361be52">system_time_isr</a> (void)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint16&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer_8c.html#d4f3ca56b0a4169e7b5f1a6a900c7d19">timer_get_ms_since</a> (uint16 old_s, uint16 old_ms)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Ausführliche Beschreibung</h2>
+Zeitmanagement. 
+<p>
+<dl compact><dt><b>Autor:</b></dt><dd>Benjamin Benz (<a href="mailto:bbe@heise.de">bbe@heise.de</a>) </dd></dl>
+<dl compact><dt><b>Datum:</b></dt><dd>26.12.05 </dd></dl>
+<hr><h2>Makro-Dokumentation</h2>
+<a class="anchor" name="efb7db7456a848e7cefe90816a5aaa88"></a><!-- doxytag: member="timer.c::LOCK" ref="efb7db7456a848e7cefe90816a5aaa88" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOCK          </td>
+          <td>(</td>
+&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Schuetzt die Zeitsynchronisation 
+</div>
+</div><p>
+<a class="anchor" name="19b1665d85404627bdc076a60e21d926"></a><!-- doxytag: member="timer.c::UNLOCK" ref="19b1665d85404627bdc076a60e21d926" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNLOCK          </td>
+          <td>(</td>
+&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Hebt den Schutz fuer die Zeitsynchronisation wieder auf 
+</div>
+</div><p>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="66fc6b2428ce4b7312cae6478361be52"></a><!-- doxytag: member="timer.c::system_time_isr" ref="66fc6b2428ce4b7312cae6478361be52" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void system_time_isr           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Funktion, um die Systemzeit zu berechnen 
+</div>
+</div><p>
+<a class="anchor" name="5da10922d8c7c690cedfb081cbd251aa"></a><!-- doxytag: member="timer.c::timer_get_ms" ref="5da10922d8c7c690cedfb081cbd251aa" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_ms           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Funktion liefert den Millisekundenanteil der Systemzeit zurueck. <dl compact><dt><b>Rückgabe:</b></dt><dd>uint16 </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="d4f3ca56b0a4169e7b5f1a6a900c7d19"></a><!-- doxytag: member="timer.c::timer_get_ms_since" ref="d4f3ca56b0a4169e7b5f1a6a900c7d19" args="(uint16 old_s, uint16 old_ms)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_ms_since           </td>
+          <td>(</td>
+          <td class="paramtype">uint16&nbsp;</td>
+          <td class="paramname"> <em>old_s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16&nbsp;</td>
+          <td class="paramname"> <em>old_ms</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Liefert die Millisekunden zurueck, die seit old_s, old_ms verstrichen sind <dl compact><dt><b>Parameter:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>old_s</em>&nbsp;</td><td>alter Sekundenstand </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>old_ms</em>&nbsp;</td><td>alter Millisekundenstand </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="7d04063f7a1f2fd2016628def5473c01"></a><!-- doxytag: member="timer.c::timer_get_s" ref="7d04063f7a1f2fd2016628def5473c01" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_s           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Funktion liefert den Sekundenanteil der Systemzeit zurueck. <dl compact><dt><b>Rückgabe:</b></dt><dd>uint16 </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="55c2ec6ee6d914d90c4aff3d9d2900ac"></a><!-- doxytag: member="timer.c::timer_get_us" ref="55c2ec6ee6d914d90c4aff3d9d2900ac" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16 timer_get_us           </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Diese Funktion liefert den Mikrosekundenanteil der Systemzeit zurueck. <dl compact><dt><b>Rückgabe:</b></dt><dd>uint16 </dd></dl>
+
+</div>
+</div><p>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Mon Jul 10 11:56:13 2006 für c't-Bot von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
+</body>
+</html>
